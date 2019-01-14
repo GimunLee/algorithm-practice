@@ -1,1 +1,2 @@
-# algorithm_practice
+### algorithm_practice
+- Class명은 Solution

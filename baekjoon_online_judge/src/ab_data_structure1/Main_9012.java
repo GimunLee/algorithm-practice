@@ -3,7 +3,6 @@ package ab_data_structure1;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 
 public class Main_9012 {
 	public static void main(String[] args) throws NumberFormatException, IOException {
@@ -29,7 +28,6 @@ public class Main_9012 {
 						top-=2;
 					}
 				}
-				
 			}
 			if(top < 0) {
 				System.out.println("YES");

@@ -6,8 +6,6 @@ import java.io.InputStreamReader;
  * 쇠막대기 자르기
  */
 public class Solution_5432 {
-
-    
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int tc = Integer.parseInt(br.readLine()); // Test Case 수
@@ -27,7 +25,7 @@ public class Solution_5432 {
             	// 닫힌 것이 나왔을 때,
             	else if(input[i-1] == '('){ // 1. 레이저일 경우
             		open--;
-            		sum += (open--);
+            		sum += (open);
             	}else { // 2. 레이저가 아닐 경우
             		open--;
             		sum += 1;

@@ -8,7 +8,7 @@ import java.io.InputStreamReader;
  * 1로 만들기
  */
 public class Main_1463 {
-	static int[] d = new int[1000000];
+	static int[] d = new int[1000001];
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int num = Integer.parseInt(br.readLine().trim());
@@ -27,7 +27,7 @@ public class Main_1463 {
 				d[i] = d[i/3] + 1;
 			}
 		}
-		System.out.println(d[10]);
+		System.out.println(d[num]);
 		
 	}
 	

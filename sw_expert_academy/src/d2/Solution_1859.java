@@ -14,7 +14,7 @@ public class Solution_1859 {
 		int tc = Integer.parseInt(br.readLine());
 		
 		for (int tc_n = 1; tc_n <= tc; tc_n++) {
-			int N = Integer.parseInt(br.readLine()); // 2 <= N <= 1,000,000
+			int N = Integer.parseInt(br.readLine().trim()); // 2 <= N <= 1,000,000
 			String[] tmp = br.readLine().split(" ");	
 			int[] input = new int[N];
 			for (int i = 0; i < N; i++) {

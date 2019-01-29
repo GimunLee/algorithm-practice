@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 /**
- * 쉬운 계단수 
+ * 쉬운 계단수 (다시 풀어보기)
  */
 public class Main_10844 {
 	public static void main(String[] args) throws NumberFormatException, IOException {

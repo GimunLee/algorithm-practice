@@ -1,5 +1,5 @@
 ### algorithm_practice
-
+---
 > #### 1. baekjoon_online_judge
 >   - 백준 온라인 저지 사이트 알고리즘 문제
 >   - Class명은 'Main'으로 수정해야합니다.

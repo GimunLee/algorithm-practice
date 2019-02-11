@@ -7,7 +7,7 @@ import java.util.StringTokenizer;
 /**
  * [Professional] а╤гу
  */
-public class Solution_5607 {
+public class Solution_Pro_5607 {
 	static long P = 1234567891;
 
 	public static void main(String[] args) throws NumberFormatException, IOException {

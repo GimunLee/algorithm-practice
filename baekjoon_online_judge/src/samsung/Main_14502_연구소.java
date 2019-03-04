@@ -158,13 +158,13 @@ public class Main_14502_연구소 {
 		
 		// -- 조합 벽을 세운다.
 
-		rList_t.add(0);
-		rList_t.add(1);
-		rList_t.add(3);
-
-		cList_t.add(4);
-		cList_t.add(3);
-		cList_t.add(3);
+//		rList_t.add(0);
+//		rList_t.add(1);
+//		rList_t.add(3);
+//
+//		cList_t.add(4);
+//		cList_t.add(3);
+//		cList_t.add(3);
 
 		combination(size_combi, 0, 0);
 

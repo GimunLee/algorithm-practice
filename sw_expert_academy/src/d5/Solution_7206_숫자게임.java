@@ -3,13 +3,18 @@ package d5;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.HashMap;
 
 /**
  * 1 2 3 4 5 쪼갤지, 안 쪼갤지 (쪼갤 포인트 4개를 잡는다.)
  * 
  * 바이너리 카운팅으로 숫자를 쪼갤 포인트의 경우의 수를 나눠본다.
+ *  매번 재귀호출하면 중복이 많이 발생한다. 700ms
+ *  저장해서 사용(메모이제이션)              10ms
  */
 public class Solution_7206_숫자게임 {
+	public static HashMap<Integer, Integer> hm;
+	
 	public static void main(String[] args) throws NumberFormatException, IOException {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -17,6 +22,7 @@ public class Solution_7206_숫자게임 {
 		long time = System.currentTimeMillis(); // 시간 재기
 		for (int tc = 1; tc <= TC; tc++) {
 			int N = Integer.parseInt(br.readLine());
+			hm = new HashMap<>();
 			System.out.println("#" + tc + " " + f(N));
 		}
 
@@ -49,7 +55,16 @@ public class Solution_7206_숫자게임 {
 			mul *= num;
 //			System.out.println(num + " : " + mul);
 
-			int cnt = f(mul); 
+//			int cnt = f(mul); // 많은 중복 발생
+			int cnt;
+			
+			if(hm.containsKey(mul)) { // 이미 호출한 기록이 있으면, 재활용
+				cnt = hm.get(mul);
+			} else {
+				cnt = f(mul);
+				hm.put(mul, cnt);
+			}
+
 			if (maxCnt < cnt) {
 				maxCnt = cnt;
 			}

@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 /**
  * [S/W 문제해결 기본] 3일차 - String
  */
-public class Solution_1213 {
+public class Solution_1213_String {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

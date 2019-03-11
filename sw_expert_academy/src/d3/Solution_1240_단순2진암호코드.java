@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
 /**
  * [S/W 문제해결 응용] 1일차 - 단순 2진 암호코드
  */
-public class Solution_1240 {
+public class Solution_1240_단순2진암호코드 {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		String[] decode = { "0001101", "0011001", "0010011", "0111101", "0100011", "0110001", "0101111", "0111011",
 				"0110111", "0001011" };

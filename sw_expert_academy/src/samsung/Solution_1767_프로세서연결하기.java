@@ -1,4 +1,5 @@
 package samsung;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -19,7 +20,7 @@ public class Solution_1767_프로세서연결하기 {
 		for (int tc = 1; tc <= TC; tc++) {
 			maxCoreCnt = Integer.MIN_VALUE;
 			minCoreLen = Integer.MAX_VALUE;
-			
+
 			int N = Integer.parseInt(br.readLine().trim()); // N*N
 
 			map = new int[N][N];
@@ -51,7 +52,7 @@ public class Solution_1767_프로세서연결하기 {
 //		for (int i = 0; i < dc.length; i++) {
 //			System.out.println(Arrays.toString(map[i]));
 //		}
-		
+
 		if (idx == coreList.size()) {
 			// 기존 연결 코어보다 현재 연결 코어가 더 많다면,
 			if (coreCnt > maxCoreCnt) {
@@ -72,13 +73,12 @@ public class Solution_1767_프로세서연결하기 {
 			int ret = setLine(core, i);
 			if (ret == -1) { // 실패하는 경우
 				dfs(idx + 1, coreCnt, len);
-			}
-			else { // 성공하는 경우
+			} else { // 성공하는 경우
 				dfs(idx + 1, coreCnt + 1, len + ret);
-				
+
 				int nR = core.r;
 				int nC = core.c;
-				
+
 				while (true) {
 					nR += dr[i];
 					nC += dc[i];
@@ -86,7 +86,7 @@ public class Solution_1767_프로세서연결하기 {
 					if (nR < 0 || nC < 0 || nR > map.length - 1 || nC > map.length - 1) {
 						break;
 					}
-					
+
 					map[nR][nC] = 0;
 				}
 			}

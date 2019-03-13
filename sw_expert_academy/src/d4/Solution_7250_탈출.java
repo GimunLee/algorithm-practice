@@ -141,7 +141,6 @@ public class Solution_7250_≈ª√‚ {
 									break go;
 								}
 							}
-
 						}
 						break;
 					}
@@ -152,7 +151,6 @@ public class Solution_7250_≈ª√‚ {
 				} // end of for of term
 				time++;
 			} // end of while of q
-
 			sb.append('#').append(tc).append(' ').append(ANS).append('\n');
 		} // end of for of TestCase
 		System.out.println(sb.toString());

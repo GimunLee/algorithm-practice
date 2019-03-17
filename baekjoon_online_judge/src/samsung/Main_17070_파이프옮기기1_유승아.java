@@ -1,7 +1,7 @@
+package samsung;
+
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
 //BOJ :: 17070 파이프 옮기기1

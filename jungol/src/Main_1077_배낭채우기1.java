@@ -18,6 +18,7 @@ public class Main_1077_¹è³¶Ã¤¿ì±â1 {
 
 		for (int i = 0; i < N; i++) {
 			st = new StringTokenizer(br.readLine(), " ");
+			
 			int weight = Integer.parseInt(st.nextToken());
 			int value = Integer.parseInt(st.nextToken());
 
@@ -29,7 +30,6 @@ public class Main_1077_¹è³¶Ã¤¿ì±â1 {
 			int tmp = 1;
 			for (int j = arr[i][0]; j < dp.length; j += arr[i][0]) {
 				int tmp_value = arr[i][1] * tmp++;
-
 				if (dp[j] == 0) {
 					dp[j] = tmp_value;
 				} else {
@@ -45,6 +45,7 @@ public class Main_1077_¹è³¶Ã¤¿ì±â1 {
 				}
 			}
 		}
+		System.out.println(Arrays.toString(dp));
 
 		System.out.println(dp[W]);
 

@@ -3,7 +3,6 @@ package d3;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class Solution_5215_햄버거다이어트_DP {
@@ -35,7 +34,7 @@ public class Solution_5215_햄버거다이어트_DP {
 			int[] dp = new int[L + 1];
 
 			for (int i = 0; i < set.length; i++) {
-				for (int j = L; j > set[i][1]; j--) {
+				for (int j = L; j >= set[i][1]; j--) {
 					dp[j] = Math.max(dp[j], dp[j - set[i][1]] + set[i][0]);
 				}
 			}

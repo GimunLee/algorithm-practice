@@ -31,11 +31,15 @@ public class Main_2294_동전2 {
 			}
 		}
 		
+		System.out.println(Arrays.toString(dp));
+		
 		for (int i = 0; i < dp.length; i++) {
 			if(dp[i] == 0) {
 				dp[i] = Integer.MAX_VALUE;
 			}
 		}
+		
+		System.out.println(Arrays.toString(dp));
 		
 		for (int i = 0; i < n; i++) {
 			for (int j = money[i]+1; j < dp.length; j++) {
@@ -45,7 +49,7 @@ public class Main_2294_동전2 {
 			}
 		}
 		
-//		System.out.println(Arrays.toString(dp));
+		System.out.println(Arrays.toString(dp));
 
 		if (dp[k] == Integer.MAX_VALUE) {
 			dp[k] = -1;

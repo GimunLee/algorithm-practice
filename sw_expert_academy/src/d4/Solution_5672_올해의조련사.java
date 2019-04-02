@@ -47,18 +47,15 @@ public class Solution_5672_올해의조련사 {
 						char post = input[rear-sub];
 						
 						if(visited[front+sub] || visited[rear-sub] ) {
-							sb.append(input[front]);
-							front++;
+							sb.append(input[front++]);
 							break;
 						}
 						
 						if (pre < post) {
-							sb.append(input[front]);
-							front++;
+							sb.append(input[front++]);
 							break;
 						} else if (pre > post) {
-							sb.append(input[rear]);
-							rear--;
+							sb.append(input[rear--]);
 							break;
 						} 
 					}

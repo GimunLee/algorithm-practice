@@ -70,6 +70,5 @@ public class Solution_1494_사랑의카운슬러_Prof2 {
 			combi(n - 1, r - 1, sX + m[n - 1][0], sY + m[n - 1][1]); // 선택한 경우
 			combi(n - 1, r, sX, sY); // 선택하지 않은 경우
 		}
-
 	}
 } // end of class

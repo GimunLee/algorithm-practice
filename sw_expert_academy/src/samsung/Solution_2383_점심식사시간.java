@@ -9,7 +9,11 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.StringTokenizer;
 
-public class Solution_2383_점심식사시간2 {
+/**
+ * 최적화 안함
+ */
+
+public class Solution_2383_점심식사시간 {
 	private static ArrayList<Pair> people;
 	private static Stair[] stairs;
 
@@ -97,7 +101,7 @@ public class Solution_2383_점심식사시간2 {
 		if (timeSecond.size() != 0) {
 			Collections.sort(timeSecond);
 		}
-		
+
 		int max_first = Integer.MIN_VALUE;
 		int max_second = Integer.MIN_VALUE;
 
@@ -110,9 +114,9 @@ public class Solution_2383_점심식사시간2 {
 
 				if (i - 3 >= 0) {
 					if (timeFirst.get(i).time >= timeFirst.get(i - 3).time) { // 안 기다려도됨
-						timeFirst.set(i, new Pair(p.idx, p.r,p.c,timeFirst.get(i).time + stairs[set[p.idx]].len + 1));
+						timeFirst.set(i, new Pair(p.idx, p.r, p.c, timeFirst.get(i).time + stairs[set[p.idx]].len + 1));
 					} else {
-						timeFirst.set(i, new Pair(p.idx,p.r,p.c,timeFirst.get(i - 3).time + stairs[set[p.idx]].len));
+						timeFirst.set(i, new Pair(p.idx, p.r, p.c, timeFirst.get(i - 3).time + stairs[set[p.idx]].len));
 					}
 				}
 			}
@@ -127,9 +131,11 @@ public class Solution_2383_점심식사시간2 {
 
 				if (i - 3 >= 0) {
 					if (timeSecond.get(i).time >= timeSecond.get(i - 3).time) { // 안 기다려도됨
-						timeSecond.set(i, new Pair(p.idx, p.r,p.c,timeSecond.get(i).time + stairs[set[p.idx]].len + 1));
+						timeSecond.set(i,
+								new Pair(p.idx, p.r, p.c, timeSecond.get(i).time + stairs[set[p.idx]].len + 1));
 					} else {
-						timeSecond.set(i, new Pair(p.idx,p.r,p.c,timeSecond.get(i - 3).time + stairs[set[p.idx]].len));
+						timeSecond.set(i,
+								new Pair(p.idx, p.r, p.c, timeSecond.get(i - 3).time + stairs[set[p.idx]].len));
 					}
 				}
 			}

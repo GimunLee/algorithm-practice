@@ -1,27 +1,28 @@
 package samsung;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.StringTokenizer;
 
-public class Solution_2383_점심식사시간3 {
+/**
+ * 최적화 Memo
+ */
+
+public class Solution_2383_점심식사시간_memo {
 	private static ArrayList<Pair> people;
 	private static Stair[] stairs;
+	private static int[][] memo;
 
-	public static void main(String[] args) throws NumberFormatException, IOException {
+	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
 		int TC = Integer.parseInt(br.readLine().trim()); // Test Case 수
 
+		StringBuilder sb = new StringBuilder();
 		for (int tc = 1; tc <= TC; tc++) {
 			int N = Integer.parseInt(br.readLine().trim()); // 방의 크기
 			int[][] map = new int[N][N];
-
 			people = new ArrayList<Pair>();
 			stairs = new Stair[2];
 
@@ -37,50 +38,45 @@ public class Solution_2383_점심식사시간3 {
 					}
 				}
 			} // end of for input
-
 			set = new int[people.size()];
+			memo = new int[2][people.size()];
 			ans = Integer.MAX_VALUE;
 			PI(0);
-
-			System.out.println("#" + tc + " " + ans);
-
+			sb.append('#').append(tc).append(' ').append(ans).append('\n');
 		} // end of for TestCase
+		System.out.print(sb.toString());
 	} // end of main
 
-	private static int[] set;
-	private static int ans;
+	private static int[] set; // 순열을 저장할 배열
+	private static int ans; // 정답
 
 	private static void PI(int len) {
 		if (len == set.length) {
-//			System.out.println(Arrays.toString(set));
-			int tmp = solve(); // 최대값 return
-			if (ans > tmp) {
-				ans = tmp;
-			}
-//			System.out.println(ans);
+			int tmp = solve(); // 해당 사건에서 최대값 return
+			ans = (ans > tmp) ? tmp : ans; // 그 중 최소값 저장
 			return;
 		}
-
 		for (int i = 0; i < 2; i++) {
 			set[len] = i;
 			PI(len + 1);
 		}
-	}
+	} // end of PI()
 
 	private static int solve() {
-		ArrayList<Integer> timeFirst = new ArrayList<>();
-		ArrayList<Integer> timeSecond = new ArrayList<>();
+		ArrayList<Integer> timeFirst = new ArrayList<>(); // 첫번째 계단 이용 사람
+		ArrayList<Integer> timeSecond = new ArrayList<>(); // 두번째 계단 이용 사람
 
-		for (int i = 0; i < set.length; i++) {
-			int pR = people.get(i).r;
-			int pC = people.get(i).c;
+		for (int p_idx = 0; p_idx < set.length; p_idx++) {
+			int dTime = 0;
+			if (memo[set[p_idx]][p_idx] == 0) {
+				dTime = Math.abs(people.get(p_idx).r - stairs[set[p_idx]].r)
+						+ Math.abs(people.get(p_idx).c - stairs[set[p_idx]].c);
+				memo[set[p_idx]][p_idx] = dTime;
+			} else {
+				dTime = memo[set[p_idx]][p_idx];
+			}
 
-			int sR = stairs[set[i]].r;
-			int sC = stairs[set[i]].c;
-
-			int dTime = Math.abs(pR - sR) + Math.abs(pC - sC);
-//			System.out.println(i+"번째 사람이 " + set[i] + "번째 계단을 갈 때, 걸리는 시간은 "+ dTime);
-			if (set[i] == 0) {
+			if (set[p_idx] == 0) {
 				timeFirst.add(dTime);
 			} else {
 				timeSecond.add(dTime);
@@ -93,7 +89,6 @@ public class Solution_2383_점심식사시간3 {
 		if (timeSecond.size() != 0) {
 			Collections.sort(timeSecond);
 		}
-
 		int max_first = Integer.MIN_VALUE;
 		int max_second = Integer.MIN_VALUE;
 
@@ -101,8 +96,8 @@ public class Solution_2383_점심식사시간3 {
 			for (int i = 0; i < timeFirst.size(); i++) {
 				if (i < 3) {
 					timeFirst.set(i, timeFirst.get(i) + stairs[0].len + 1);
+					continue;
 				}
-
 				if (i - 3 >= 0) {
 					if (timeFirst.get(i) >= timeFirst.get(i - 3)) { // 안 기다려도됨
 						timeFirst.set(i, timeFirst.get(i) + stairs[0].len + 1);
@@ -117,8 +112,8 @@ public class Solution_2383_점심식사시간3 {
 			for (int i = 0; i < timeSecond.size(); i++) {
 				if (i < 3) {
 					timeSecond.set(i, timeSecond.get(i) + stairs[1].len + 1);
+					continue;
 				}
-
 				if (i - 3 >= 0) {
 					if (timeSecond.get(i) >= timeSecond.get(i - 3)) { // 안 기다려도됨
 						timeSecond.set(i, timeSecond.get(i) + stairs[1].len + 1);
@@ -135,11 +130,10 @@ public class Solution_2383_점심식사시간3 {
 		if (timeSecond.size() != 0) {
 			max_second = timeSecond.get(timeSecond.size() - 1);
 		}
-		System.out.println(max_first + ", " + max_second);
 		return Math.max(max_first, max_second);
-	}
+	} // end of solve()
 
-	private static class Pair {
+	private static class Pair { // 사람
 		int r;
 		int c;
 
@@ -149,7 +143,7 @@ public class Solution_2383_점심식사시간3 {
 		}
 	} // end of stair
 
-	private static class Stair {
+	private static class Stair { // 계단
 		int r;
 		int c;
 		int len; // 계단의 길이

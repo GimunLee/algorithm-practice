@@ -1,4 +1,4 @@
-package class0404;
+package d4;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -23,7 +23,7 @@ public class Solution_3234_준환이의양팔저울_차진홍2 {
 				w[i] = Integer.parseInt(st.nextToken());
 				W += w[i];
 			}
-			
+
 			memo = new int[W][(1 << N)]; // left무게이고 , check 상황일때 경우의 수 저장
 			for (int i = 0; i < N; i++) {
 				memo[0][0] += dfs(1, w[i], 0, (1 << i));
@@ -34,11 +34,11 @@ public class Solution_3234_준환이의양팔저울_차진홍2 {
 	}
 
 	private static int dfs(int n, int left, int right, int check) {
-		
+
 		if (memo[left][check] != 0) {
 			return memo[left][check];
 		}
-		
+
 		for (int i = 0; i < N; i++) {
 			if ((check & (1 << i)) == 0) {
 
@@ -48,8 +48,7 @@ public class Solution_3234_준환이의양팔저울_차진홍2 {
 					} else {
 						return 1;
 					}
-				} 
-				else {
+				} else {
 					memo[left][check] += dfs(n + 1, left + w[i], right, check | (1 << i));
 					if (left >= right + w[i]) {
 						memo[left][check] += dfs(n + 1, left, right + w[i], check | (1 << i));

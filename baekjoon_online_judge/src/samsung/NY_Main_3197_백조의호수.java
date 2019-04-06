@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class Main_3197_백조의호수 {
+public class NY_Main_3197_백조의호수 {
 	static final int[] dr = { -1, 1, 0, 0 };
 	static final int[] dc = { 0, 0, -1, 1 };
 

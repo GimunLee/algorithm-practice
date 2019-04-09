@@ -30,7 +30,7 @@ public class Solution_1767_프로세서연결하기 {
 				StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 				for (int c = 0; c < N; c++) {
 					map[r][c] = Integer.parseInt(st.nextToken());
-					if (map[r][c] == 1 && r != 0 && c != 0 && r != N - 1 && c != N - 1) {
+					if (map[r][c] == 1 && r != 0 && c != 0 && r != N - 1 && c != N - 1) { // 외곽 제거
 						coreList.add(new Core(r, c));
 					}
 				}
@@ -70,9 +70,11 @@ public class Solution_1767_프로세서연결하기 {
 		Core core = coreList.get(idx); // 현재 탐색할 Core를 가저온다.
 
 		for (int i = 0; i < dc.length; i++) {
-			int ret = setLine(core, i);
+			int ret = setLine(core, i); // i:방향
+			
 			if (ret == -1) { // 실패하는 경우
 				dfs(idx + 1, coreCnt, len);
+				
 			} else { // 성공하는 경우
 				dfs(idx + 1, coreCnt + 1, len + ret);
 

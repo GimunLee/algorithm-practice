@@ -8,8 +8,8 @@ import java.util.StringTokenizer;
 
 public class Main_17136_색종이붙이기 {
 	final static int[] paper = { 0, 1, 2, 3, 4, 5 }; // 색종이 크기를 저장해놓은 변수
-	static int[] paper_cnt = { 0, 5, 5, 5, 5, 5 }; // 색종이 개수를 저장해놓은 변수
-	private static ArrayList<Pair> list; // map에서 1의 위치를 담기 위한 list 변수
+	static int[] paper_cnt = { 0, 5, 5, 5, 5, 5 }; // 정해진 색종이 개수를 저장해놓은 변수
+	private static ArrayList<Pair> list; // map에서 1의 위치(색종이를 붙일 곳)을 담기 위한 list 변수
 	private static int[][] map; // input을 저장할 2차원 배열
 	private static boolean[][] canWork; // 색종이를 붙여보는 변수로, true인 경우 색종이를 붙일 수 있습니다.
 
@@ -85,21 +85,20 @@ public class Main_17136_색종이붙이기 {
 			dfs(idx + 1, cnt);
 		}
 
-		for (int type = 5; type >= 0; type--) { // 큰 색종이부터 진행하면 Backtracking을 통해, 시간을 줄일 수 있습니다.
+		for (int type = 5; type >= 0; type--) { // 큰 색종이부터 진행하면 Backtracking 조건을 통해, 시간을 줄일 수 있습니다.
 			boolean flag = chk(idx, type); // 색종이를 붙일 수 있는지 확인합니다.
 			if (flag) { // 색종이를 붙일 수 있는 경우
-				// 색종이를 붙여줍니다.
-				for (int r = p.r; r < p.r + paper[type]; r++) {
+				for (int r = p.r; r < p.r + paper[type]; r++) { // 색종이를 붙여줍니다.
 					for (int c = p.c; c < p.c + paper[type]; c++) {
 						canWork[r][c] = false;
 					}
 				}
-				// 색종이의 종류는 5개 밖에 없으므로, 색종이의 개수를 줄여줍니다.
+				// 색종이의 종류마다 5개 밖에 없으므로, 색종이의 개수를 줄여줍니다.
 				paper_cnt[type]--;
 
 				dfs(idx + 1, cnt + 1); // 색종이를 붙였으므로, 다음을 탐색하기위해 idx와 cnt에 1을 더하고 재귀호출합니다.
 
-				// 원상복귀 : 다음 조합에서 더욱 적은 조합이 있을 수 있으므로, 색종이를 다시 떼줍니다.
+				// 원상복귀 : 다음 조합에서 더욱 좋은 조합이 있을 수 있으므로, 색종이를 다시 떼줍니다.
 				paper_cnt[type]++;
 				for (int r = p.r; r < p.r + paper[type]; r++) {
 					for (int c = p.c; c < p.c + paper[type]; c++) {

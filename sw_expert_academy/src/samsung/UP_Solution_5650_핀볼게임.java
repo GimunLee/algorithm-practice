@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class Solution_5650_«…∫º∞‘¿” {
+public class UP_Solution_5650_«…∫º∞‘¿” {
 	static int[] dr = { -1, 0, 1, 0 };
 	static int[] dc = { 0, 1, 0, -1 };
 	private static int[][] map;

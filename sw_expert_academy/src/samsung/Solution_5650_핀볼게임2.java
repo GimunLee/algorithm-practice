@@ -8,7 +8,7 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 /**
- * 함수 없앰
+ * 함수 없앰, upload 예정
  */
 
 public class Solution_5650_핀볼게임2 {

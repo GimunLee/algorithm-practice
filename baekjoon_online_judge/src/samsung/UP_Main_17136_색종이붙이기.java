@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class Main_17136_색종이붙이기 {
+public class UP_Main_17136_색종이붙이기 {
 	final static int[] paper = { 0, 1, 2, 3, 4, 5 }; // 색종이 크기를 저장해놓은 변수
 	static int[] paper_cnt = { 0, 5, 5, 5, 5, 5 }; // 정해진 색종이 개수를 저장해놓은 변수
 	private static ArrayList<Pair> list; // map에서 1의 위치(색종이를 붙일 곳)을 담기 위한 list 변수

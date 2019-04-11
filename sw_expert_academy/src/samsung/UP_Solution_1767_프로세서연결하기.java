@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class Solution_1767_프로세서연결하기 {
+public class UP_Solution_1767_프로세서연결하기 {
 	static int[][] map;
 	static ArrayList<Core> coreList;
 	static int[] dr = { -1, 1, 0, 0 };

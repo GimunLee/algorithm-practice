@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class Solution_5650_핀볼게임2 {
+public class UP_Solution_5650_핀볼게임2 {
 	static int[] dr = { -1, 0, 1, 0 }; // row : 상, 우, 하, 좌
 	static int[] dc = { 0, 1, 0, -1 }; // column : 상, 우, 하, 좌
 	private static int[][] map; // 입력 받는 값을 저장하기 위한 2차원 배열 변수

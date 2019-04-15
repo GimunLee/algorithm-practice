@@ -27,7 +27,7 @@ public class Solution_2115_벌꿀채취 {
 
 			map = new int[N][N];
 			list = new ArrayList<>();
-			comb_bucket = new int[2][M]; // 각 일꾼이 선택한 벌통의 index를 저장합니다.
+			comb_bucket = new int[2][M]; // 각 일꾼이 선택한 벌통의 index를 저장하는 변수입니다.
 
 			for (int r = 0; r < N; r++) {
 				st = new StringTokenizer(br.readLine(), " ");
@@ -39,7 +39,7 @@ public class Solution_2115_벌꿀채취 {
 
 			isChoice = new boolean[N][N];
 			ans = Integer.MIN_VALUE; // 최대 수익을 저장할 변수입니다.
-			chooceBucket(0, 0); // idx : 일꾼이 벌통을 고를 인자, len : 일꾼 한명이 벌통을 골랐는지 판별하는 인자
+			chooceBucket(0, 0); // idx : 일꾼이 벌통을 고를 인자, len : 일꾼이 벌통을 골랐는지 판별하는 인자
 
 			sb.append('#').append(tc).append(' ').append(ans).append('\n');
 		} // end of for TestCase
@@ -53,17 +53,17 @@ public class Solution_2115_벌꿀채취 {
 	/**
 	 * 각 일꾼이 조건에 맞게 꿀을 채취할 통을 고릅니다.
 	 * 
-	 * @param idx : 일꾼이 뽑을 꿀통 인덱스
-	 * @param len : 모든 일꿀이 꿀통을 다 뽑았는지 판단할 변수 
+	 * @param idx : 일꾼이 뽑을 벌통 인덱스
+	 * @param len : 모든 일꿀이 벌통을 다 뽑았는지 판단할 변수 
 	 * */
 	private static void chooceBucket(int idx, int len) {
 		if (len == 2) { // 일꾼 2명 모두 채취할 통을 골랐을 때,
 			tmp = 0; // 조합마다 첫번째 일꾼의 최대 수익을 갱신해줍니다.
 			
 			// 두 일꾼 모두 같은 함수를 사용합니다. 단, 일꿀 별 채취할 통을 인자로 넘깁니다.
-			dfs(comb_bucket[0], 0, 0, 0); // 첫번째 일꾼이 꿀을 채취할 통, 채취한 꿀통 개수, 채취한 꿀 용량, 최대 수익
+			dfs(comb_bucket[0], 0, 0, 0); // 첫번째 일꾼이 꿀을 채취할 통, 채취한 벌통 개수, 채취한 꿀 용량, 최대 수익
 			// 첫번째 일꾼의 최대 수익이 나야, 정답이 나올 수 있으므로 두번째 일꾼은 첫번째 일꾼이 일한 최대 수익에서 계산을 시작합니다.
-			dfs(comb_bucket[1], 0, 0, tmp); // 두번째 일꾼이 꿀을 채취할 통, 채취한 꿀통 개수, 채취한 꿀 용량, 최대 수익
+			dfs(comb_bucket[1], 0, 0, tmp); // 두번째 일꾼이 꿀을 채취할 통, 채취한 벌통 개수, 채취한 꿀 용량, 최대 수익
 			ans = (ans<tmp)? tmp : ans; // 두 일꾼 모두 채취한 후, 수익을 갱신해줍니다.
 			return; 
 		}
@@ -73,13 +73,13 @@ public class Solution_2115_벌꿀채취 {
 			int r = p.r;
 			int c = p.c;
 			
-			// 가로로 M번째까지 일꾼이 꿀통을 선택할 수 있는지 확인합니다.
+			// 가로로 M번째까지 일꾼이 벌통을 선택할 수 있는지 확인합니다.
 			for (int j = 0; j < M; j++) {
 				if (c + j >= N) { // 범위를 넘어간 경우, 다음 index부터 확인합니다.
 					continue here;
 				}
 
-				if (isChoice[r][c + j]) { // 이미 다른 일꿀이 선택한 꿀통인 경우, 다음 index부터 확인합니다.
+				if (isChoice[r][c + j]) { // 이미 다른 일꿀이 선택한 벌통인 경우, 다음 index부터 확인합니다.
 					continue here;
 				}
 			}
@@ -102,9 +102,9 @@ public class Solution_2115_벌꿀채취 {
 
 	
 	/**
-	 * 한 일꾼이 채취할 꿀통에서 조건에 맞게 꿀을 채취하며 최대 수익을 계산합니다.
+	 * 한 일꾼이 채취할 벌통에서 조건에 맞게 꿀을 채취하며 최대 수익을 계산합니다.
 	 * 
-	 *  @param each_bucket : 일꾼이 채취할 꿀통 배열
+	 *  @param each_bucket : 일꾼이 채취할 벌통 배열
 	 *  @param idx : 일꾼이 채취할 벌통의 인덱스
 	 *  @param honey : 일꾼이 현재까지 채취한 꿀
 	 *  @param benefit : 일꾼이 꿀을 채취했을때의 수익
@@ -113,12 +113,12 @@ public class Solution_2115_벌꿀채취 {
 		if (tmp < benefit) { // 기존에 저장되어있는 수익보다 현재 수익이 크다면 갱신해줍니다.
 			tmp = benefit;
 		}
-		if (idx == M) { // 일꾼이 꿀통을 끝까지 채취했을때,
+		if (idx == M) { // 일꾼이 벌통을 끝까지 채취했을때,
 			return;
 		}
 
-		int r = list.get(each_bucket[idx]).r; // 현재 일할 꿀통의 r 좌표를 가져옵니다.
-		int c = list.get(each_bucket[idx]).c; // 현재 일할 꿀통의 c 좌표를 가져옵니다.
+		int r = list.get(each_bucket[idx]).r; // 현재 일할 벌통의 r 좌표를 가져옵니다.
+		int c = list.get(each_bucket[idx]).c; // 현재 일할 벌통의 c 좌표를 가져옵니다.
 
 		if (map[r][c] > C || honey + map[r][c] > C) { // 일꾼의 꿀통 용량이 넘쳤을때,
 			return;

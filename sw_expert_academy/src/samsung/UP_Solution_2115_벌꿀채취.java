@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class Solution_2115_벌꿀채취 {
+public class UP_Solution_2115_벌꿀채취 {
 	private static int N; // 채취할 벌통 크기
 	private static int M; // 선택할 수 있는 벌통의 개수
 	private static int C; // 일꾼당 꿀을 채취할 수 있는 최대 양

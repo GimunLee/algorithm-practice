@@ -62,9 +62,7 @@ public class Main_17070_파이프옮기기1_유승아 {
 				continue;
 
 			dfs(ny, nx, Dir[i]);
-
 		}
-
 	}
 
 	public static int[] getDir(int type) {

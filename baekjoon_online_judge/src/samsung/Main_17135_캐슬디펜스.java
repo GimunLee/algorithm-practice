@@ -65,19 +65,26 @@ public class Main_17135_Ä³½½µðÆæ½º {
 		int temp_cnt = cnt;
 		int temp_ans = 0;
 		ArrayList<Enermy> tlist = new ArrayList<>();
-		tlist.addAll(list);
-		
+		for (int i = 0; i < list.size(); i++) {
+			tlist.add(new Enermy(list.get(i)));
+		}
+
 		while (temp_cnt > 0) {
-			System.out.println(Arrays.toString(set));
-			System.out.println(temp_cnt);
 			for (int i = 0; i < set.length; i++) {
 				for (int j = 0; j < tlist.size(); j++) {
 					Enermy e = tlist.get(j);
-					e.dis[i] = Math.abs(e.r - N) + Math.abs(e.c - set[i]);
+					if (!e.isDie) {
+						e.dis[i] = Math.abs(e.r - N) + Math.abs(e.c - set[i]);
+					}
 					e.turn = i;
 				}
 
 				Collections.sort(tlist);
+				for (int j = 0; j < tlist.size(); j++) {
+					Enermy e = tlist.get(j);
+					System.out.println(e.r + ", " + e.c + " : " + e.dis[i]);
+
+				}
 
 				here: for (int j = 0; j < tlist.size(); j++) {
 					Enermy e = tlist.get(j);
@@ -104,11 +111,9 @@ public class Main_17135_Ä³½½µðÆæ½º {
 					if (e.r >= N) {
 						temp_cnt--;
 					}
-
 				}
 			}
 		}
-
 		ans = (ans < temp_ans) ? temp_ans : ans;
 		return;
 	} // end of playGame()
@@ -127,12 +132,20 @@ public class Main_17135_Ä³½½µðÆæ½º {
 			dis = new int[3];
 		}
 
+		public Enermy(Enermy e) {
+			this.r = e.r;
+			this.c = e.c;
+			this.turn = e.turn;
+			this.dis = e.dis;
+			this.shooted = e.shooted;
+			this.isDie = e.isDie;
+		}
+
 		@Override
 		public int compareTo(Enermy o) {
 			int temp = this.dis[this.turn] - o.dis[this.turn];
-
 			if (temp == 0) {
-				return this.c - o.c;
+				return (o.r - this.r) - (o.c -  this.c);
 			}
 			return temp;
 		}

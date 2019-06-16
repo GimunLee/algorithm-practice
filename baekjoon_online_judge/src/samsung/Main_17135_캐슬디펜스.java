@@ -82,7 +82,7 @@ public class Main_17135_캐슬디펜스 {
 				Collections.sort(tlist);
 				for (int j = 0; j < tlist.size(); j++) {
 					Enermy e = tlist.get(j);
-					System.out.println(e.r + ", " + e.c + " : " + e.dis[i]);
+//					System.out.println(e.r + ", " + e.c + " : " + e.dis[i]);
 
 				}
 
@@ -109,6 +109,7 @@ public class Main_17135_캐슬디펜스 {
 				e.r++;
 				if (!e.isDie) {
 					if (e.r >= N) {
+						e.isDie = true;
 						temp_cnt--;
 					}
 				}
@@ -144,8 +145,9 @@ public class Main_17135_캐슬디펜스 {
 		@Override
 		public int compareTo(Enermy o) {
 			int temp = this.dis[this.turn] - o.dis[this.turn];
-			if (temp == 0) {
-				return (o.r - this.r) - (o.c -  this.c);
+			if (temp == 0) { // distance가 같을때
+				// row 우선 -> column 정렬
+				temp = this.c - o.c;
 			}
 			return temp;
 		}

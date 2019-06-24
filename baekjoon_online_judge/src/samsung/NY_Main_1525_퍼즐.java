@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class Main_1525_∆€¡Ò {
+public class NY_Main_1525_∆€¡Ò {
 	private static int[][] map;
 	private static int[][] map_mv;
 	private static int[] dr = { -1, 1, 0, 0 };

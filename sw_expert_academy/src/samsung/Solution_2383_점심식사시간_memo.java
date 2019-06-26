@@ -41,7 +41,7 @@ public class Solution_2383_점심식사시간_memo {
 			set = new int[people.size()];
 			memo = new int[2][people.size()];
 			ans = Integer.MAX_VALUE;
-			PI(0);
+			setStairs(0);
 			sb.append('#').append(tc).append(' ').append(ans).append('\n');
 		} // end of for TestCase
 		System.out.print(sb.toString());
@@ -50,7 +50,7 @@ public class Solution_2383_점심식사시간_memo {
 	private static int[] set; // 순열을 저장할 배열
 	private static int ans; // 정답
 
-	private static void PI(int len) {
+	private static void setStairs(int len) {
 		if (len == set.length) {
 			int tmp = solve(); // 해당 사건에서 최대값 return
 			ans = (ans > tmp) ? tmp : ans; // 그 중 최소값 저장
@@ -58,9 +58,9 @@ public class Solution_2383_점심식사시간_memo {
 		}
 		for (int i = 0; i < 2; i++) {
 			set[len] = i;
-			PI(len + 1);
+			setStairs(len + 1);
 		}
-	} // end of PI()
+	} // end of func(setStairs)
 
 	private static int solve() {
 		ArrayList<Integer> timeFirst = new ArrayList<>(); // 첫번째 계단 이용 사람

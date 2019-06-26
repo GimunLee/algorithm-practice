@@ -1,6 +1,6 @@
 package samsung;
 
-public class Solution_5644_公急面傈 {
+public class NY_Solution_5644_公急面傈 {
 	public static void main(String[] args) {
 		
 		

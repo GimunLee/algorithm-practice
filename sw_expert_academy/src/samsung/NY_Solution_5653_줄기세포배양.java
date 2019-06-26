@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class Solution_5653_줄기세포배양 {
+public class NY_Solution_5653_줄기세포배양 {
 
 	static int[][] map;
 	static int[][] timeCheck; // 한번 방문한 곳은 방문 할 수 없음을 체크할 변수

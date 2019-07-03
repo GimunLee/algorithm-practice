@@ -3,13 +3,12 @@ package af_graph1;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Stack;
 import java.util.StringTokenizer;
 
-public class Main_2252_줄세우기 {
-	private static boolean[] visited;
-	private static Stack<Integer> stack;
+public class Main_2252_줄세우기_queue {
 	private static ArrayList<Integer>[] list;
+	private static boolean[] visited;
+	private static int[] indegree;
 
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -20,8 +19,8 @@ public class Main_2252_줄세우기 {
 
 		list = new ArrayList[N + 1];
 		visited = new boolean[N + 1];
-		stack = new Stack<Integer>();
-		
+		indegree = new int[N + 1];
+
 		for (int i = 0; i < M; i++) {
 			st = new StringTokenizer(br.readLine(), " ");
 			int A = Integer.parseInt(st.nextToken());
@@ -30,45 +29,30 @@ public class Main_2252_줄세우기 {
 				list[A] = new ArrayList<Integer>();
 			}
 			list[A].add(B);
+			indegree[B]++;
 		}
 
-		ArrayList<Integer> tlist = new ArrayList<Integer>();
-
-		for (int i = 1; i <= N; i++) {
-			if (list[i] != null && !visited[i]) { // 나가는 간선있고, 방문하지 않았을 때 
-				dfs(i);
-			}
-		}
 		StringBuilder sb = new StringBuilder();
 
-		for (int i = 1; i <= N; i++) {
-			if (!visited[i]) {
-				sb.append(i).append(" ");
-			}
-		}
+		int cnt = N;
 
-		while (!stack.isEmpty()) {
-			sb.append(stack.pop()).append(" ");
+		while (cnt != 0) {
+			for (int i = 1; i <= N; i++) {
+				if (indegree[i] == 0 && !visited[i]) {
+					visited[i] = true;
+					sb.append(i).append(" ");
+					cnt--;
+					// 연결된 간선 체크
+					if (list[i] == null) {
+						continue;
+					} else {
+						for (int j = 0; j < list[i].size(); j++) {
+							indegree[list[i].get(j)]--;
+						}
+					}
+				}
+			}
 		}
 		System.out.println(sb.toString());
 	} // end of main
-
-	private static void dfs(int student) {
-		visited[student] = true;
-
-		if (list[student] == null) {
-			stack.add(student);
-			return;
-		}
-
-		for (int i = 0; i < list[student].size(); i++) {
-			int next = list[student].get(i);
-			if (visited[next]) {
-				continue;
-			}
-			dfs(next);
-
-		}
-		stack.add(student);
-	} // end of func(dfs)
 } // end of class

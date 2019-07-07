@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
-public class Main_10026_적록색약_BFS {
+public class 예정_Main_10026_적록색약_BFS {
 	static char[][] map;
 	static boolean[][] visited;
 	static int ans_normal;

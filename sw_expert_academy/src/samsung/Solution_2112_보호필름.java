@@ -54,7 +54,6 @@ public class Solution_2112_보호필름 {
 
 	private static boolean checkFilm() {
 		int unChecked = W;
-
 		// 검사 먼저하기 (반복문), 모두 K개인지
 		for (int c = 0; c < W; c++) {
 			// 하나의 열 검사 변수

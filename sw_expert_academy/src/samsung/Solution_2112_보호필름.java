@@ -5,6 +5,9 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
+/**
+ * Blog Update 예정
+ * */
 public class Solution_2112_보호필름 {
 	private static int D;
 	private static int W;

@@ -14,3 +14,4 @@
   
  #### 4. B형 대비 문제 리스트 뽑기
    - LinkedList, Stack, Queue, Tree 기본
+   - 이분탐색, MST, disjointset

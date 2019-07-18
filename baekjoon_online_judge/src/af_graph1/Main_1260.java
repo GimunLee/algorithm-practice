@@ -20,13 +20,6 @@ public class Main_1260 {
 			int start = Integer.parseInt(st.nextToken());
 			int end = Integer.parseInt(st.nextToken());
 			
-			
-			
 		}
-		
-		
-		
-		
 	}
-
 }

@@ -2,27 +2,26 @@ package d3;
 
 import java.util.Arrays;
 
-/** 
- * 에라토스테네스의 체
- * 3131. 100만 이하의 모든 소수
+/**
+ * 에라토스테네스의 체 3131. 100만 이하의 모든 소수
  */
-public class Solution_3131 {
+public class Solution_3131_100만이하의모든소수 {
 	public static void main(String[] args) {
 // 에라토스테네스의 체
 		StringBuilder sb = new StringBuilder(); // 단일 쓰레드에서만 쓸 수 있고, 가장 빠르다.
 		boolean[] isHapSungSu = new boolean[1000001];
 		for (int i = 2; i < isHapSungSu.length; i++) {
-			if(!isHapSungSu[i]) { // 처음 들어왔으면 false
+			if (!isHapSungSu[i]) { // 처음 들어왔으면 false
 				sb.append(i).append(' '); // append(i+ " ") 문자열의 연산을 줄여라.
 				// i의 배수들은 소수 아니므로 true로 설정
-				for (int j = i+i; j < isHapSungSu.length; j+=i) { // 곱셈을 줄여라.
+				for (int j = i + i; j < isHapSungSu.length; j += i) { // 곱셈을 줄여라.
 					isHapSungSu[j] = true;
 				}
 			}
-			
+
 		}
 		System.out.print(sb);
-		
+
 // 에라토스테네스의 체 Time Out
 //		int N = 1000;
 //		boolean[] result = new boolean[1000000];
@@ -50,7 +49,7 @@ public class Solution_3131 {
 //			}
 //		}
 //		System.out.println(Arrays.toString(answer));
-		
+
 // Time Out		
 //		int N = 1000;
 //		int[] Answer = new int[N];

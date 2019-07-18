@@ -29,7 +29,7 @@ public class Main_1828_≥√¿Â∞Ì {
 			StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 			clist.add(new Cami(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken())));
 		}
-		
+
 		Collections.sort(clist, new Comparator<Cami>() {
 			@Override
 			public int compare(Cami arg0, Cami arg1) {
@@ -47,7 +47,7 @@ public class Main_1828_≥√¿Â∞Ì {
 
 			if (cur.min <= prev.max) {
 				int tmp_min = cur.min;
-				int tmp_max = (prev.max > cur.max) ? cur.max: prev.max;
+				int tmp_max = (prev.max > cur.max) ? cur.max : prev.max;
 				rlist.set(index, new Cami(tmp_min, tmp_max));
 			} else {
 				index++;

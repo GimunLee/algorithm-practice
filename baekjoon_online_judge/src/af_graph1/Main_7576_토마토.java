@@ -3,7 +3,6 @@ package af_graph1;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.StringTokenizer;
 
@@ -39,7 +38,7 @@ public class Main_7576_토마토 {
 //				System.out.println(Arrays.toString(map[i]) + " ");
 //			}
 //			System.out.println("\n");
-			
+
 			++front;
 			int x = queue[front][0];
 			int y = queue[front][1];
@@ -49,28 +48,28 @@ public class Main_7576_토마토 {
 				int ty = y + direction[i][1];
 
 				if (inRange(tx, ty) && map[tx][ty] == 0) {
-					map[tx][ty] = map[x][y]+1;
+					map[tx][ty] = map[x][y] + 1;
 					++rear;
 					queue[rear][0] = tx;
 					queue[rear][1] = ty;
 				}
 			}
 		}
-		
+
 		int day = 0;
 		boolean flag = false;
-		
+
 		for (int i = 0; i < map.length; i++) {
 			for (int j = 0; j < map[0].length; j++) {
-				if(map[i][j] == 0) { // 끝까지 탐색했는데 안 익은 토마토가 있는 경우
-					flag = true; 
+				if (map[i][j] == 0) { // 끝까지 탐색했는데 안 익은 토마토가 있는 경우
+					flag = true;
 				}
-				if(map[i][j] > day) {
+				if (map[i][j] > day) {
 					day = map[i][j];
 				}
 			}
 		}
-		return flag ? -1 : day-1;
+		return flag ? -1 : day - 1;
 	}
 
 	public static void main(String[] args) throws IOException {

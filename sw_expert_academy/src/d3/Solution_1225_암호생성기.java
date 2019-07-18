@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
 /**
  * [S/W 문제해결 기본] 7일차 - 암호생성기 
  */
-public class Solution_1225 {
+public class Solution_1225_암호생성기 {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
@@ -17,7 +17,7 @@ public class Solution_1225 {
 			br.readLine(); // 안씀
 			
 			int[] q = new int[8];
-			int front = -1; 
+			int front = -1;
 			int rear = -1;
 
 			int sub = 1;
@@ -47,7 +47,6 @@ public class Solution_1225 {
 				System.out.print(" " + f);	
 			}
 			System.out.println();
-			
 		}
 	}// end of main
 }// end of class

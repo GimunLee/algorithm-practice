@@ -5,26 +5,26 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- * 1224. [S/W 문제해결 기본] 6일차 - 계산기3 
+ * 1224. [S/W 문제해결 기본] 6일차 - 계산기3
  */
-public class Solution_1224 {
+public class Solution_1224_계산기3 {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		
-		for (int tc =1; tc <= 10; tc++) {
+
+		for (int tc = 1; tc <= 10; tc++) {
 			int cnt = Integer.parseInt(br.readLine());
 			String[] tmp = br.readLine().split("");
-			
+
 			String[] array = new String[cnt];
 			int index = 0;
-			
+
 			String[] stack = new String[cnt];
 			int top = -1;
-			
+
 			for (int i = 0; i < tmp.length; i++) {
 				String s = tmp[i];
-				switch(s) {
+				switch (s) {
 				case "(":
 					stack[++top] = tmp[i];
 					break;
@@ -65,14 +65,14 @@ public class Solution_1224 {
 //				System.out.print(array[i] + " ");
 //			}
 //			System.out.println();
-			
+
 			int[] stack2 = new int[cnt];
 			int top2 = -1;
-			
+
 			for (int i = 0; i < index; i++) {
-				String c  = array[i];
+				String c = array[i];
 				int num1, num2;
-				switch(c) {
+				switch (c) {
 				case "+":
 					num2 = stack2[top2--];
 					num1 = stack2[top2--];
@@ -88,7 +88,7 @@ public class Solution_1224 {
 					break;
 				}
 			}
-			System.out.printf("#%d %s\n", tc, stack2[0]);	
+			System.out.printf("#%d %s\n", tc, stack2[0]);
 		}
 	} // end of main
 } // end of class

@@ -4,13 +4,14 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
-/** 
+
+/**
  * [S/W ¹®Á¦ÇØ°á ±âº»] 4ÀÏÂ÷ - °ýÈ£ Â¦Áþ±â
  */
-public class Solution_1218 {
+public class Solution_1218_°ýÈ£Â¦Áþ±â {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		
+
 		for (int i = 1; i <= 10; i++) { // Test Case È½¼ö
 			int tc_len = Integer.parseInt(br.readLine()); // Test Case ±æÀÌ
 			String[] stack = new String[100]; // ½ºÅÃ ÀúÀå
@@ -18,28 +19,32 @@ public class Solution_1218 {
 			int j;
 			String input = br.readLine();
 			String[] array = input.split(""); // Test Case ¹è¿­
-			
+
 			for (j = 0; j < array.length; j++) {
-				
-				
-				if(array[j].equals("(") || array[j].equals("[") || array[j].equals("{") || array[j].equals("<")) {
+
+				if (array[j].equals("(") || array[j].equals("[") || array[j].equals("{") || array[j].equals("<")) {
 					stack[top++] = array[j];
-				}else {
+				} else {
 					String tmp = stack[--top];
 
-					if (array[j] == null) break;
-					
-					if (array[j].equals(")") && tmp.equals("("));
-					else if (array[j].equals("]") && tmp.equals("["));
-					else if (array[j].equals("}") && tmp.equals("{"));
-					else if (array[j].equals(">") && tmp.equals("<"));
-					else break;
+					if (array[j] == null)
+						break;
+
+					if (array[j].equals(")") && tmp.equals("("))
+						;
+					else if (array[j].equals("]") && tmp.equals("["))
+						;
+					else if (array[j].equals("}") && tmp.equals("{"))
+						;
+					else if (array[j].equals(">") && tmp.equals("<"))
+						;
+					else
+						break;
 				}
 			}
-			if (top==0 && j == array.length) {
-				System.out.println("#"+i+" 1");
-			}
-			else {
+			if (top == 0 && j == array.length) {
+				System.out.println("#" + i + " 1");
+			} else {
 				System.out.println("#" + i + " 0");
 			}
 		}

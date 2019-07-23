@@ -17,7 +17,7 @@ public class Main_1005_ACMCraft {
 	private static ArrayList<Integer>[] list;
 	private static int[] indegree;
 	private static int W;
-
+	
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int TC = Integer.parseInt(br.readLine().trim());
@@ -55,9 +55,6 @@ public class Main_1005_ACMCraft {
 			W = Integer.parseInt(br.readLine().trim()); // 건물 번호
 			// -- end of input
 			int[] tmp_D = new int[N + 1];
-			for (int i = 0; i < tmp_D.length; i++) {
-				tmp_D[i] = -1;
-			}
 
 			here: while (true) {
 				for (int i = 1; i <= N; i++) {
@@ -75,10 +72,14 @@ public class Main_1005_ACMCraft {
 							indegree[next] -= 1; // 들어오는 간선 줄이기
 							// tmp_D : 들어오는 간선 중 가장 큰 값
 
+							if(visited[next]) {
+								continue;
+							}
+							
 							tmp_D[next] = tmp_D[next] < D[i] ? D[i] : tmp_D[next];
-
 							if (indegree[next] == 0) { // 들어오는 간선에 대한 처리가 끝났을시,
 								D[next] = tmp_D[next] + D[next];
+								visited[next] = true;
 								if (next == W) { // 해당 건물을 만났을 경우
 									break here;
 								}

@@ -27,6 +27,8 @@ public class Solution_2117_홈방범서비스 {
 			homeTotalCnt = 0;
 			ans = Integer.MIN_VALUE;
 
+			queue = new int[400][2];
+
 			for (int r = 0; r < N; r++) {
 				st = new StringTokenizer(br.readLine(), " ");
 				for (int c = 0; c < N; c++) {
@@ -36,7 +38,6 @@ public class Solution_2117_홈방범서비스 {
 					}
 				}
 			} // end of for(input)
-
 
 			for (int r = 0; r < N; r++) {
 				for (int c = 0; c < N; c++) {
@@ -54,7 +55,6 @@ public class Solution_2117_홈방범서비스 {
 
 	/** 마름모 확인 */
 	private static void checkRhombus(int[][] map, boolean[][] visited, int r, int c) {
-		queue = new int[3000][2];
 		int front = -1;
 		int rear = -1;
 
@@ -93,7 +93,14 @@ public class Solution_2117_홈방범서비스 {
 				}
 			} // end of while(one K)
 			int ansTemp = getBenefit(homeCnt, getCostByK(tmpK));
-			ans = ans < ansTemp ? ansTemp : ans;
+
+			if (ansTemp >= 0) {
+				ans = ans < homeCnt ? homeCnt : ans;
+			}
+			
+			if (tmpK > 2 * N - 1) { // 끝에서 끝까지 간 경우
+				return;
+			}
 
 			if (homeCnt == homeTotalCnt) { // 이미 해당 점에서 모든 점을 봤을때,
 				return;
@@ -107,7 +114,7 @@ public class Solution_2117_홈방범서비스 {
 		return K * K + (K - 1) * (K - 1);
 	}
 
-	private static int getBenefit(int homeCnt, int tK) {
-		return (homeCnt * M) - tK;
+	private static int getBenefit(int homeCnt, int k) {
+		return (homeCnt * M) - k;
 	}
 } // end of class

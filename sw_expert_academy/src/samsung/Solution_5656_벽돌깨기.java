@@ -94,7 +94,12 @@ public class Solution_5656_벽돌깨기 {
 
 		for (int i = 0; i < set.length; i++) { // 구슬 횟수만큼 반복
 			int c = set[i]; // 떨어트리는 위치 (Column)
+			if(maxHByWIndex_tmp[c] <= 0 ) {
+				continue;
+			}
+			
 			int r = H - maxHByWIndex_tmp[c]; // 해당 위치의 가장 높은 위치
+
 			int front = -1;
 			int rear = -1;
 
@@ -105,11 +110,6 @@ public class Solution_5656_벽돌깨기 {
 				// queue.poll();
 				int rr = queue[++front][0];
 				int cc = queue[front][1];
-				System.out.println(rr);
-				System.out.println("===================");
-				for (int rrr = 0; rrr < H; rrr++) {
-					System.out.println(Arrays.toString(map_tmp[rrr]));
-				}
 				int bombRange = map_tmp[rr][cc] - 1; // 폭발 범위
 				shooted[rr][cc] += 1; // 무조건 1이상이므로 첫 폭발은 무조건 올려줌
 
@@ -137,11 +137,11 @@ public class Solution_5656_벽돌깨기 {
 				int top = -1;
 
 				for (int tr = (H - maxHByWIndex_tmp[tc]); tr < H; tr++) {
-					if (shooted[tr][tc] == 0 && map_tmp[tr][tc] != 0) {
-						stack[++top] = map_tmp[tr][tc];
+					if (shooted[tr][tc] != 0 && map_tmp[tr][tc] != 0) {
 						shooted[tr][tc] = 0;
-					} else {
 						ans_tmp--;
+					} else {
+						stack[++top] = map_tmp[tr][tc];
 					}
 					map_tmp[tr][tc] = 0;
 				}

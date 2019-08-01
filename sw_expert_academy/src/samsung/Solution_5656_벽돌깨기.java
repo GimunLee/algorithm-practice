@@ -5,6 +5,10 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
+/**
+ * ¸®ÆÑÅä¸µ ¿¹Á¤
+ * */
+
 public class Solution_5656_º®µ¹±ú±â {
 	static int[] dr = { -1, 1, 0, 0 };
 	static int[] dc = { 0, 0, -1, 1 };

@@ -5,6 +5,9 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
+/**
+ * 다뽑고나서 하는게 아니라, 한 열씩 터트리면서 해야함
+ * */
 public class Solution_5656_벽돌깨기 {
 	static int[] dr = { -1, 1, 0, 0 };
 	static int[] dc = { 0, 0, -1, 1 };

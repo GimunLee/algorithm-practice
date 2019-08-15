@@ -2,10 +2,9 @@ package samsung;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class Main_16236_아기상어{
+public class Main_16236_아기상어 {
 	static int[] dr = { -1, 0, 0, 1 }; // 상좌우하
 	static int[] dc = { 0, -1, 1, 0 };
 
@@ -17,7 +16,7 @@ public class Main_16236_아기상어{
 		int[][] visited = new int[N][N];
 		int[] cntFish = new int[7]; // 0은 안씀
 		cntFish[0] = Integer.MAX_VALUE;
-		int[][] queue = new int[500][2];
+		int[][] queue = new int[200][2];
 		int front = -1, rear = -1;
 
 		for (int r = 0; r < N; r++) {
@@ -40,11 +39,7 @@ public class Main_16236_아기상어{
 
 		int ans = 0;
 
-<<<<<<< HEAD
 		int[][] tmpArr = new int[50][2];
-=======
-		int[][] tmpArr = new int[500][2];
->>>>>>> branch 'master' of https://github.com/GimunLee/algorithm_practice.git
 		int tmpArrIndex = 0;
 		there: while (rear != front) {
 
@@ -82,29 +77,7 @@ public class Main_16236_아기상어{
 						queue[rear][1] = nC;
 						visited[nR][nC] = time;
 					}
-<<<<<<< HEAD
-=======
-				} // end of for(direction)
-			} 
-			if (tmpArrIndex != 0) {
-				int tmpR = Integer.MAX_VALUE;
-				int tmpC = Integer.MAX_VALUE;
-				for (int j = 0; j < tmpArrIndex; j++) {
-					int rr = tmpArr[j][0];
-					int cc = tmpArr[j][1];
-					
-					if (tmpR > rr) {
-						tmpR = rr;
-						tmpC = cc;
-					} else if (tmpR == rr) {
-						if (tmpC > cc) {
-							tmpR = rr;
-							tmpC = cc;
-						}
-					}
->>>>>>> branch 'master' of https://github.com/GimunLee/algorithm_practice.git
 				}
-<<<<<<< HEAD
 			} // end of for(direction)
 			if (tmpArrIndex != 0) {
 				int tmpR = Integer.MAX_VALUE;
@@ -127,14 +100,6 @@ public class Main_16236_아기상어{
 					level++; // 레벨업
 					cntEat = 0;
 				}
-=======
-				cntEat++;
-				if (cntEat == level && level <= 6) {
-					level++; // 레벨업
-					cntEat = 0;
-				}
-				ans = time;
->>>>>>> branch 'master' of https://github.com/GimunLee/algorithm_practice.git
 				cntFish[map[tmpR][tmpC]]--;
 				map[tmpR][tmpC] = 0;
 

@@ -40,12 +40,13 @@ public class Main_16236_아기상어 {
 
 		int ans = 0;
 
-		int[][] tmpArr = new int[4][2];
+		int[][] tmpArr = new int[50][2];
 		int tmpArrIndex = 0;
 		there: while (rear != front) {
 
 			int tmp = 0;
 			int size = rear;
+//			System.out.println(level + " , " + cntEat);
 //			for (int i = 0; i < N; i++) {
 //				System.out.println(Arrays.toString(visited[i]) + " | " + Arrays.toString(map[i]));
 //			}
@@ -77,51 +78,49 @@ public class Main_16236_아기상어 {
 						queue[rear][1] = nC;
 						visited[nR][nC] = time;
 					}
-
-				}
-				if (tmpArrIndex != 0) {
-					int tmpR = Integer.MAX_VALUE;
-					int tmpC = Integer.MAX_VALUE;
-					for (int j = 0; j < tmpArrIndex; j++) {
-						int rr = tmpArr[j][0];
-						int cc = tmpArr[j][1];
-						if (tmpR > rr) {
-							tmpR = rr;
-							tmpC = cc;
-						} else if (tmpR == rr) {
-							if (tmpC > cc) {
-								tmpR = rr;
-								tmpC = cc;
-							}
-						}
-					}
-					cntEat++;
-					if (cntEat == level && level <= 6) {
-						level++; // 레벨업
-						cntEat = 0;
-					}
-					cntFish[map[tmpR][tmpC]]--;
-					map[tmpR][tmpC] = 0;
-
-					for (int j = 1; j < level; j++) {
-						tmp += cntFish[j];
-					}
-					if (tmp == 0) {
-						ans = time;
-						break there;
-					}
-					// -- 초기화 작업
-					front = -1;
-					rear = -1;
-					visited = new int[N][N];
-					visited[tmpR][tmpC] = time;
-					queue[++rear][0] = tmpR;
-					queue[rear][1] = tmpC;
-
-					tmpArrIndex = 0;
-					break;
 				}
 			} // end of for(direction)
+			if (tmpArrIndex != 0) {
+				int tmpR = Integer.MAX_VALUE;
+				int tmpC = Integer.MAX_VALUE;
+				for (int j = 0; j < tmpArrIndex; j++) {
+					int rr = tmpArr[j][0];
+					int cc = tmpArr[j][1];
+					if (tmpR > rr) {
+						tmpR = rr;
+						tmpC = cc;
+					} else if (tmpR == rr) {
+						if (tmpC > cc) {
+							tmpR = rr;
+							tmpC = cc;
+						}
+					}
+				}
+				cntEat++;
+				if (cntEat == level && level <= 6) {
+					level++; // 레벨업
+					cntEat = 0;
+				}
+				cntFish[map[tmpR][tmpC]]--;
+				map[tmpR][tmpC] = 0;
+
+				for (int j = 1; j < level; j++) {
+					tmp += cntFish[j];
+				}
+				if (tmp == 0) {
+					ans = time;
+					break there;
+				}
+				// -- 초기화 작업
+				front = -1;
+				rear = -1;
+				visited = new int[N][N];
+				visited[tmpR][tmpC] = time;
+				queue[++rear][0] = tmpR;
+				queue[rear][1] = tmpC;
+
+				tmpArrIndex = 0;
+			}
 			time++;
 		} // end of while(queue)
 		System.out.println(ans);

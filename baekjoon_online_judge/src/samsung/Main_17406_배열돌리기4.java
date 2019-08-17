@@ -2,13 +2,16 @@ package samsung;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 /**
  * 2019.08.17.(토)
  */
 public class Main_17406_배열돌리기4 {
-	private static int[][] map, mapRotate, mapClone;
+	private static int[] dr = { 1, 0, -1, 0 };
+	private static int[] dc = { 0, 1, 0, -1 };
+	private static int[][] map, mapClone;
 	private static int N, M, K;
 	private static Pair[] set;
 
@@ -20,13 +23,11 @@ public class Main_17406_배열돌리기4 {
 		M = Integer.parseInt(st.nextToken());
 		K = Integer.parseInt(st.nextToken()); // 연산 횟수
 		map = new int[N + 1][M + 1];
-		mapRotate = new int[N + 1][M + 1];
 		mapClone = new int[N + 1][M + 1];
 		for (int r = 1; r <= N; r++) {
 			st = new StringTokenizer(br.readLine(), " ");
 			for (int c = 1; c <= M; c++) {
 				map[r][c] = Integer.parseInt(st.nextToken());
-				mapRotate[r][c] = map[r][c];
 				mapClone[r][c] = map[r][c];
 			}
 		}
@@ -52,7 +53,7 @@ public class Main_17406_배열돌리기4 {
 	private static void solve(int len) {
 		if (len == K) {
 			for (int i = 0; i < K; i++) {
-				rotate(set[rotateOrder[i]]);
+				rotateNew(set[rotateOrder[i]]);
 			}
 			int tmp = getMinSum();
 			ANS = ANS > tmp ? tmp : ANS;
@@ -60,7 +61,6 @@ public class Main_17406_배열돌리기4 {
 			for (int r = 1; r <= N; r++) {
 				for (int c = 1; c <= M; c++) {
 					mapClone[r][c] = map[r][c];
-					mapRotate[r][c] = map[r][c];
 				}
 			}
 			return;
@@ -76,38 +76,28 @@ public class Main_17406_배열돌리기4 {
 		}
 	} // end of func(solve)
 
-	private static void rotate(Pair pair) {
-		int startR = pair.r - pair.s;
-		int endR = pair.r + pair.s;
-		int startC = pair.c - pair.s;
-		int endC = pair.c + pair.s;
-		
-		while (true) {
-			if (startR == endR || startC == endC) {
-				break;
+	private static void rotateNew(Pair pair) {
+		for (int s = 1; s <= pair.s; s++) {
+			int r = pair.r - s;
+			int c = pair.c - s;
+
+			int tmp = mapClone[r][c];
+			int dir = 0;
+			while (dir < 4) {
+				int nR = r + dr[dir];
+				int nC = c + dc[dir];
+
+				if (nR <= pair.r + s && nC <= pair.c + s && nR >= pair.r - s && nC >= pair.c - s) {
+					mapClone[r][c] = mapClone[nR][nC];
+					r = nR;
+					c = nC;
+				} else {
+					dir++;
+				}
 			}
-			for (int c = startC + 1; c <= endC; c++) {
-				mapRotate[startR][c] = mapClone[startR][c - 1];
-			}
-			for (int r = startR + 1; r <= endR; r++) {
-				mapRotate[r][endC] = mapClone[r - 1][endC];
-			}
-			for (int c = endC - 1; c >= startC; c--) {
-				mapRotate[endR][c] = mapClone[endR][c + 1];
-			}
-			for (int r = endR - 1; r >= startR; r--) {
-				mapRotate[r][startC] = mapClone[r + 1][startC];
-			}
-			startR++; endR--;
-			startC++; endC--;
+			mapClone[pair.r - s][pair.c - s + 1] = tmp;
 		}
-		for (int r = 1; r <= N; r++) {
-			for (int c = 1; c <= M; c++) {
-				mapClone[r][c] = mapRotate[r][c];
-			}
-		}
-		return;
-	} // end of func(rotate)
+	}
 
 	private static int getMinSum() {
 		int min = Integer.MAX_VALUE;
@@ -115,9 +105,6 @@ public class Main_17406_배열돌리기4 {
 			int tmp = 0;
 			for (int c = 1; c <= M; c++) {
 				tmp += mapClone[r][c];
-				if (tmp > min) {
-					break;
-				}
 			}
 			min = tmp < min ? tmp : min;
 		}

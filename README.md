@@ -33,3 +33,5 @@
       BST(Binary Search Tree) : bbst까지는 너무 어렵고 bst 정도? 사실 힙으로 어느정도 커버가 되는 부분
       Segment Tree : 알아두면 쓸 일이 언젠가 생기지 않을까?
       Sqrt Decompisition : 개념은 쉽고 유용한데 쓸 일이 많은 유형인지는 잘 모르겠다
+
+#### Repository 정리 예정

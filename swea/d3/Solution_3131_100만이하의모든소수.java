@@ -1,4 +1,4 @@
-package d3;
+package swea.d3;
 
 import java.util.Arrays;
 

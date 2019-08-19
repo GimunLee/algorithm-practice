@@ -1,4 +1,4 @@
-package d4;
+package swea.d4;
 
 /**
  * 홍익이의 오델로 게임

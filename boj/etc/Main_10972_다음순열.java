@@ -1,4 +1,4 @@
-package etc;
+package boj.etc;
 
 import java.util.Scanner;
 /*

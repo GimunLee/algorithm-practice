@@ -1,5 +1,4 @@
-package etc;
-
+package boj.etc;
 import java.math.BigInteger;
 import java.util.Scanner;
 

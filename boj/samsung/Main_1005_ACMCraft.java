@@ -1,5 +1,4 @@
-package samsung;
-
+package boj.samsung;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;

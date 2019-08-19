@@ -1,5 +1,4 @@
-package samsung;
-
+package boj.samsung;
 /* -- ¹Ý·Ê
 10
 1 1 1 0 0 0 0 0 0 0

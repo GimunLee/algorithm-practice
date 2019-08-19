@@ -1,5 +1,4 @@
-package new_mind;
-
+package boj.newmind;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

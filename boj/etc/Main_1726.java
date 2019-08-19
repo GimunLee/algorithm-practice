@@ -1,5 +1,4 @@
-package etc;
-
+package boj.etc;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

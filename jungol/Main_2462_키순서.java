@@ -1,3 +1,5 @@
+package jungol;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -7,8 +9,7 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 /**
- * 각 노드의 부모가 몇개인지 저장하는 배열
- * 진출차수, 진입차수 더한게 N-1이면 가능함
+ * 각 노드의 부모가 몇개인지 저장하는 배열 진출차수, 진입차수 더한게 N-1이면 가능함
  */
 
 public class Main_2462_키순서 {
@@ -21,7 +22,7 @@ public class Main_2462_키순서 {
 		ArrayList<Integer>[] list = new ArrayList[N + 1];
 		Queue<Integer> q = new LinkedList<Integer>();
 		boolean flag = false;
-		
+
 		for (int i = 0; i < C; i++) {
 			StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 			int a = Integer.parseInt(st.nextToken()); // a 학생
@@ -31,41 +32,40 @@ public class Main_2462_키순서 {
 				list[a] = new ArrayList<Integer>();
 			}
 			list[a].add(b);
-			if(!flag) {
+			if (!flag) {
 				q.add(a);
 				flag = true;
 			}
-			
+
 		}
 
 		int[] order = new int[N + 1];
 
-		
-		boolean[] visited = new boolean[N+1];
-		
-		for (int i = 1; i < N+1; i++) {
-			if(!visited[i]) {
-				if(q.isEmpty()) {
+		boolean[] visited = new boolean[N + 1];
+
+		for (int i = 1; i < N + 1; i++) {
+			if (!visited[i]) {
+				if (q.isEmpty()) {
 					q.add(i);
 				}
-				
-				while(!q.isEmpty()) {
+
+				while (!q.isEmpty()) {
 					int p = q.poll();
 					visited[p] = true;
-					
-					if(list[p] == null) {
+
+					if (list[p] == null) {
 						continue;
 					}
-					
-					if(order[p] == 0) {
+
+					if (order[p] == 0) {
 						order[p] = 1;
 					}
-					
+
 					for (int j = 0; j < list[p].size(); j++) {
-						if(order[list[p].get(j)] == 0) {
-							order[list[p].get(j)] = order[p]+1;
-						}else {
-							if(order[list[p].get(j)] < order[p]+1) {
+						if (order[list[p].get(j)] == 0) {
+							order[list[p].get(j)] = order[p] + 1;
+						} else {
+							if (order[list[p].get(j)] < order[p] + 1) {
 								order[list[p].get(j)] = order[p] + 1;
 							}
 						}
@@ -74,9 +74,9 @@ public class Main_2462_키순서 {
 				}
 			}
 		}
-		
+
 		System.out.println(Arrays.toString(order));
-		
+
 //		boolean[] order_chk = new boolean[N+1];
 //		int ans = 0;
 //		
@@ -110,22 +110,22 @@ public class Main_2462_키순서 {
 //			}
 //		}
 		int ans = 0;
-		for (int i = 1; i < N+1; i++) {
+		for (int i = 1; i < N + 1; i++) {
 			int temp = 0;
-			for (int j = 1; j < N+1; j++) {
-				if(order[i] < order[j]) {
+			for (int j = 1; j < N + 1; j++) {
+				if (order[i] < order[j]) {
 					temp++;
 				}
-				if(order[i] > order[j]) {
+				if (order[i] > order[j]) {
 					temp++;
 				}
 			}
-			if(temp == N-1) {
+			if (temp == N - 1) {
 				System.out.println(i);
 				ans++;
 			}
 		}
-		
+
 		System.out.println(ans);
 
 	} // end of main()

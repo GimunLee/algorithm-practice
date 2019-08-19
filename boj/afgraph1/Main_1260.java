@@ -1,5 +1,4 @@
-package af_graph1;
-
+package boj.afgraph1;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

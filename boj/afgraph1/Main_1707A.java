@@ -1,4 +1,4 @@
-package af_graph1;
+package boj.afgraph1;
 import java.util.ArrayList;
 import java.util.ListIterator;
 import java.util.Scanner;

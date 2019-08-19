@@ -1,5 +1,4 @@
-package aa_input_output;
-
+package boj.aainputoutput;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

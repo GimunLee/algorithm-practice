@@ -1,4 +1,4 @@
-package samsung;
+package swea.mock;
 
 import java.io.BufferedReader;
 import java.io.IOException;

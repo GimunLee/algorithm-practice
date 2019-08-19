@@ -1,5 +1,4 @@
-package com.numberofcases;
-
+package basic.numberofcases;
 import java.util.ArrayList;
 import java.util.Arrays;
 

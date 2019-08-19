@@ -1,3 +1,5 @@
+package jungol;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -23,7 +25,7 @@ public class Main_2634_»ç³É²Û {
 		Arrays.sort(arr_m);
 
 		int ans = 0;
-		
+
 		for (int i = 0; i < N; i++) {
 			st = new StringTokenizer(br.readLine(), " "); // µ¿¹°µé ÁÂÇ¥ x,y
 			int x = Integer.parseInt(st.nextToken());

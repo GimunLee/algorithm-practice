@@ -1,4 +1,4 @@
-package selena_help;
+package boj.selenahelp;
 
 import java.util.Arrays;
 

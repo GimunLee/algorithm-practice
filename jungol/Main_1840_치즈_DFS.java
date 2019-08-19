@@ -1,3 +1,5 @@
+package jungol;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -46,10 +48,9 @@ public class Main_1840_치즈_DFS {
 //			}
 
 			deleteCnt = 0;
-			
+
 			dfs(0, 0); // 한 텀에 치즈를 지우고 나온다.
 
-			
 			if (cnt == 0) {
 				System.out.println(time);
 				System.out.println(deleteCnt);

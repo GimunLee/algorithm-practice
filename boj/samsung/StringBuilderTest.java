@@ -1,5 +1,4 @@
-package samsung;
-
+package boj.samsung;
 /**
  * StringBuilder ¼º´É Test
  * */

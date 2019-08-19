@@ -1,4 +1,4 @@
-package d4;
+package swea.d4;
 
 /**
  * 시작좌표 (r,c)를 정하고, 사각형의 폭(w), 높이(h)를 정한뒤

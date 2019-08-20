@@ -11,11 +11,11 @@
  #### 3. sw_expert_academy
    - 삼성 소프트웨어 사이트 알고리즘 문제
    - Class명은 'Solution'으로 수정해야합니다.
-  
+
  #### 4. B형 대비 문제 리스트 뽑기
    - LinkedList, Stack, Queue, Tree 기본
    - 이분탐색, MST, disjointset
-   -- 필수
+      -- 필수
       해싱 : B형보는데 해싱을 모르고 응용할 줄 모르면 바로 혀 깨물어야됨
       링크드리스트 구현 : 링크드리스트 쓰는 문제 진짜 많이 나온다
       트리 구현 : 자식 수가 안 정해진 트리를 구현하는 법은 무적권 알아야 됨
@@ -35,3 +35,7 @@
       Sqrt Decompisition : 개념은 쉽고 유용한데 쓸 일이 많은 유형인지는 잘 모르겠다
 
 #### Repository 정리 예정
+
+---
+
+Commit Test //

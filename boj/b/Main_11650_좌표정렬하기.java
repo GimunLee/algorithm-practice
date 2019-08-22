@@ -5,6 +5,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
+/** Remind */
 public class Main_11650_��ǥ�����ϱ� {
 	private static int N;
 	private static Pair[] input;

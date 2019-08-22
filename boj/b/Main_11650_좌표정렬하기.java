@@ -2,72 +2,97 @@ package boj.b;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class Main_11650_ÁÂÇ¥Á¤·ÄÇÏ±â {
-	private static int listSize = 0;
+public class Main_11650_ï¿½ï¿½Ç¥ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ {
+	private static int N;
+	private static Pair[] input;
 
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int N = Integer.parseInt(br.readLine().trim()); // 1 <= N <= 100,000
+		N = Integer.parseInt(br.readLine().trim()); // 1 <= N <= 100,000
+		input = new Pair[N];
 
-		ListNode head = null;
 		for (int i = 0; i < N; i++) {
 			StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-			int x = Integer.parseInt(st.nextToken());
-			int y = Integer.parseInt(st.nextToken());
-			head = ListNode.appendListNode(head, new Pair(x, y));
-			listSize++;
-		}
-
-		ListNode node = head;
-		do {
-			if (head == null) {
-				break;
-			}
-			System.out.print(node.data + " ");
-			node = node.next;
-		} while (node != head);
+			input[i] = new Pair(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()));
+		} // end of for(input)
+//		quickSort(0, N - 1);
+		sort(input,0,N-1);
+		
+		System.out.println(Arrays.toString(input));
 
 	} // end of main
 
-	private static class ListNode {
-		Pair data;
-		ListNode prev;
-		ListNode next;
+	private static void quickSort(int first, int last) {
 
-		public ListNode(Pair data) {
-			this.data = data;
-			prev = this;
-			next = this;
+		if (first >= last) {
+			return;
 		}
 
-		public static ListNode appendListNode(ListNode head, Pair data) {
-			ListNode node = new ListNode(data);
-			if (head == null) { // ListÀÇ Ã¹ ³ëµåÀÏ ¶§,
-				head = node;
-			} else {
-				ListNode last = head.prev; // ¸¶Áö¸· ³ëµå°¡ headÀÇ ÀüÀ» °¡¸£Å°µµ·Ï, ¾îÂ¼ÇÇ headÀÇ prev°¡ °¡Àå ¸¶Áö¸· ³ëµåÀÌ¹Ç·Î
-				last.next = node; // ±× ¸¶Áö¸· ³ëµåÀÇ next¿¡ Áö±İ µé¾î¿Â ³ëµå¸¦ ÀúÀå
-				head.prev = node; // ´Ù½Ã ¸¶Áö¸· ³ëµå¸¦ ÇöÀç µé¾î¿Â ³ëµå·Î ±³Ã¼ÇÔ
-				node.prev = last; // ÇöÀç ³ëµåÀÇ ¾Õ¿¡´Â ÀÌ ³ëµå°¡ µé¾î¿À±âÀü °¡Àå ¸¶Áö¸· ³ëµå¸¦ °¡¸£Å°µµ·Ï
-				node.next = head; // ÇöÀç ³ëµåÀÇ ´ÙÀ½¿¡´Â head¸¦ °¡¸£Å°µµ·Ï ÇÔ
-			}
-			return head;
-		} // end of func(appendListNode)
+		int pivot = (first + last) / 2;
+		Pair pivotValue = input[pivot];
+		int i = first;
+		int j = last;
 
-		public static ListNode removeList(ListNode head, ListNode node) {
-			if (head == head.next) { // ¸®½ºÆ®¿¡ ³ëµå°¡ ÇÏ³ª¹Û¿¡ ¾øÀ» ¶§
-				return null;
-			} else { // ¿©·¯°³°¡ ÀÖÀ» ¶§,
-				ListNode prevNode = node.prev; // »èÁ¦ÇÏ°íÀÚÇÏ´Â ³ëµåÀÇ ¾ÕÀ» ÀúÀå
-				ListNode nextNode = node.next; // »èÁ¦ÇÏ°íÀÚ ÇÏ´Â ³ëµåÀÇ ´ÙÀ½À» ÀúÀå
-				prevNode.next = nextNode;
-				nextNode.prev = prevNode;
-				return (head == node) ? nextNode : head; // »èÁ¦ÇÑ °ÍÀÌ °¡Àå Ã¹¹øÂ° ³ëµå¶ó¸é
+		while (i < j) { // Partition
+			System.out.println(i + ", " + j);
+			System.out.println(Arrays.toString(input));
+			while (input[i].x <= pivotValue.x) {
+				i++;
 			}
-		} // end of func(ListNode)
-	} // end of ListNode
+			while (input[j].x > pivotValue.x) {
+				j--;
+			}
+
+			if (i <= j) {
+				Pair temp = input[i];
+				input[i] = input[j];
+				input[j] = temp;
+				i++;
+				j--;
+			}
+		} // end of Partition
+		pivot = i;
+		// iï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		quickSort(first, pivot - 1);
+		quickSort(pivot + 1, last);
+	}
+	
+	public static void sort(Pair[] data, int l, int r) {
+        int left = l;
+        int right = r;
+        Pair pivot = data[(l + r) / 2]; // pivot ï¿½ï¿½ï¿½îµ¥ ï¿½ï¿½ï¿½ï¿½ (ï¿½Ö¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+ 
+        do {
+            while (data[left].x < pivot.x)
+                left++;
+            while (data[right].x > pivot.x)
+                right--;
+ 
+            if (left <= right) {
+                System.out.println("change");
+                Pair temp = data[left];
+                data[left] = data[right];
+                data[right] = temp;
+                left++;
+                right--;
+            }
+            System.out.println(Arrays.toString(data)+"  "+pivot);
+            System.out.println("left : " + left + " right : " + right);
+        } while (left <= right);
+ 
+        if (l < right) {//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Ã¼Å© (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ Ã¼Å©)
+            System.out.println("l : " + l + " end: " + right);
+            sort(data, l, right);
+        }
+        if (r > left) {//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Ã¼Å© (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ Ã¼Å©)
+            System.out.println("l : " + left + " end: " + r);
+            sort(data, left, r);
+ 
+        }
+    }
 
 	private static class Pair {
 		int x;
@@ -80,7 +105,8 @@ public class Main_11650_ÁÂÇ¥Á¤·ÄÇÏ±â {
 
 		@Override
 		public String toString() {
-			return "(" + x + ", " + y + ")";
+			return "Pair [x=" + x + ", y=" + y + "]";
 		}
+
 	} // end of Pair
 } // end of class

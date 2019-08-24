@@ -1,4 +1,4 @@
-package boj.samsung;
+package mock;
 /**
  * StringBuilder ¼º´É Test
  * */

@@ -1,4 +1,4 @@
-package boj.samsung;
+package mock;
 /* -- ¹Ý·Ê
 10
 1 1 1 0 0 0 0 0 0 0

@@ -1,4 +1,4 @@
-package mock;
+package boj.mock;
 /**
  * StringBuilder ¼º´É Test
  * */

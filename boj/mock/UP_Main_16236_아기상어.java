@@ -3,7 +3,10 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Main_16236_아기상어 {
+/**
+ * 2019.08.25.(SUN) Upload
+ * */
+public class UP_Main_16236_아기상어 {
 	// 상하좌우로 움직이기 위한 변수
 	static int[] dr = { -1, 1, 0, 0 }; // 행(상하)
 	static int[] dc = { 0, 0, -1, 1 }; // 열(좌우)

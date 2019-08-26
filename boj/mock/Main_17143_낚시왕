@@ -1,0 +1,152 @@
+package boj.mock;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Main_17143_낚시왕 {
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+
+		int R = Integer.parseInt(st.nextToken());
+		int C = Integer.parseInt(st.nextToken());
+		int M = Integer.parseInt(st.nextToken());
+
+		Shark[][] map = new Shark[R + 1][C + 1];
+		Shark[] originArr = new Shark[R * C];
+		int originArrSize = 0;
+
+		int nearShark = Integer.MAX_VALUE;
+
+		for (int m = 0; m < M; m++) {
+			st = new StringTokenizer(br.readLine(), ", ");
+			int r = Integer.parseInt(st.nextToken());
+			int c = Integer.parseInt(st.nextToken());
+			int s = Integer.parseInt(st.nextToken());
+			int d = Integer.parseInt(st.nextToken());
+			int z = Integer.parseInt(st.nextToken());
+			Shark shark = new Shark(r, c, s, d, z);
+			map[shark.r][shark.c] = shark;
+			originArr[originArrSize++] = shark;
+		} // end of for(input)
+
+		for (int i = 1; i <= R; i++) {
+			if (map[i][1] != null) {
+				nearShark = i;
+				break;
+			}
+		}
+
+		// 1:위, 2:아래, 3:오른쪽, 4:왼쪾
+		int ANS = 0;
+		Shark[] moveArr = new Shark[originArrSize + 1];
+		int moveArrSize = 0;
+
+		for (int time = 1; time <= C; time++) {
+			moveArrSize = 0;
+			if (nearShark != Integer.MAX_VALUE) {
+				ANS += map[nearShark][time].z;
+				map[nearShark][time] = null;
+				nearShark = Integer.MAX_VALUE;
+			} // 물고기 잡기
+
+			if (time == C) {
+				break;
+			}
+
+			// 물고기 움직이기
+			for (int i = 0; i < originArrSize; i++) {
+				int r = originArr[i].r;
+				int c = originArr[i].c;
+				if (map[r][c] != null) { // 물고기가 있는 경우
+					Shark shark = map[r][c];
+					map[shark.r][shark.c] = null;
+					int tempS = shark.s;
+					while (true) {
+						if (tempS == 0) {
+							break;
+						}
+						if (shark.d == 1) {
+							int remain = shark.r - 1;
+							if (remain >= tempS) {
+								shark.r -= tempS;
+								break;
+							} else {
+								tempS -= remain + 1;
+								shark.r = 2;
+								shark.d = 2; // 방향 바꾸기
+							}
+						} else if (shark.d == 2) {
+							int remain = R - shark.r;
+							if (remain >= tempS) {
+								shark.r += tempS;
+								break;
+							} else { // 경계를 만나는 순간 방향바꾸기
+								tempS -= remain + 1;
+								shark.r = R - 1;
+								shark.d = 1; // 방향 바꾸기
+							}
+						} else if (shark.d == 3) { // 오른쪽
+							int remain = C - shark.c;
+							if (remain >= tempS) {
+								shark.c += tempS;
+								break;
+							} else {
+								tempS -= remain + 1;
+								shark.c = C - 1;
+								shark.d = 4; // 방향 바꾸기
+							}
+						} else if (shark.d == 4) { // 왼쪽
+							int remain = shark.c - 1;
+							if (remain >= tempS) {
+								shark.c -= tempS;
+								break;
+							} else {
+								tempS -= remain + 1;
+								shark.c = 2;
+								shark.d = 3; // 방향 바꾸기
+							}
+						}
+					}
+					moveArr[moveArrSize++] = shark;
+				}
+			}
+			originArrSize = 0;
+			for (int i = 0; i < moveArrSize; i++) {
+				Shark shark = moveArr[i];
+				if (map[shark.r][shark.c] == null) {
+					map[shark.r][shark.c] = shark;
+					originArr[originArrSize++] = shark;
+
+				} else {
+					if (map[shark.r][shark.c].z < shark.z) {
+						map[shark.r][shark.c] = shark;
+						originArr[originArrSize++] = shark;
+					}
+				}
+				if (shark.c == time + 1) {
+					if (nearShark > shark.r) {
+						nearShark = shark.r;
+					}
+				}
+			}
+		} // end of for(time)
+		System.out.println(ANS);
+	} // end of main
+
+	private static class Shark {
+		int r, c;
+		int s; // 속력
+		int d; // 이동 방향
+		int z; // 크기
+
+		public Shark(int r, int c, int s, int d, int z) {
+			this.r = r;
+			this.c = c;
+			this.s = s;
+			this.d = d;
+			this.z = z;
+		}
+	} // end of Shark
+} // end of class

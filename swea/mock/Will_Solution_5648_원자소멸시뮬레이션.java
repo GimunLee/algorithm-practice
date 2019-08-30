@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
 /**
  * 2019.08.28.(수)
  * */
-public class Solution_5648_원자소멸시뮬레이션 {
+public class Will_Solution_5648_원자소멸시뮬레이션 {
 	private static int[] dy = { -1, 1, 0, 0 }; // 상, 하 (row)
 	private static int[] dx = { 0, 0, -1, 1 }; // 좌, 우 (column)
 

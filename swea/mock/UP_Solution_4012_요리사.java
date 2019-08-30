@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
  * 2019.08.27.(화)
  * 2019.08.27.(화) Upload
  */
-public class Solution_4012_요리사 {
+public class UP_Solution_4012_요리사 {
 	private static int N; // 음식의 정보가 담겨있는 맵의 행(row)과 열(column) 제한 변수
 	private static int[][] map; // 음식의 정보를 저장할 배열
 

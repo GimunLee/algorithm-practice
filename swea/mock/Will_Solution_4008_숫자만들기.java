@@ -5,8 +5,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Solution_4008_숫자만들기 {
-	private static int[] op = new int[4];
+public class Will_Solution_4008_숫자만들기 {
+	private static int[] op = new int[4]; // 0 : + , 1: -, 2: *, 3
 	private static int[] numArr;
 
 	public static void main(String[] args) throws Exception {
@@ -39,8 +39,9 @@ public class Solution_4008_숫자만들기 {
 	private static int maxValue;
 	private static int minValue;
 
+	/** numArr : 숫자 */
 	private static void solve(int numArrIdx, int opLen, int value) {
-
+		System.out.println(numArrIdx + ", " + opLen + " ," + value);
 		if (opLen == numArr.length - 1) {
 			if (value > maxValue) {
 				maxValue = value;

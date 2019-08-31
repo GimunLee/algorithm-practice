@@ -1,8 +1,8 @@
 package programmers;
 /**
- * Hash ¹è¿ì±â
+ * Hash ë°°ìš°ê¸°
  */
-public class Programmers_¿ÏÁÖÇÏÁö¸øÇÑ¼±¼ö {
+public class Programmers_ì™„ì£¼í•˜ì§€ëª»í•œì„ ìˆ˜ {
 
 	public static void main(String[] args) {
 		String[] a = { "marina", "josipa", "nikola", "vinko", "filipa" };
@@ -13,20 +13,20 @@ public class Programmers_¿ÏÁÖÇÏÁö¸øÇÑ¼±¼ö {
 
 	private static final int HASH_SIZE = 1000;
 	private static final int HASH_LEN = 400;
-	private static final int HASH_VAL = 17; // 19, 23À» °¡Àå ¸¹ÀÌ¾¸
+	private static final int HASH_VAL = 17; // 19, 23ì„ ê°€ì¥ ë§ì´ì”€
 
 	private static String[][] hash = new String[HASH_SIZE][HASH_LEN];
 	private static int[] cnt = new int[HASH_SIZE];
 
 	public static String solution(String[] participant, String[] completion) {
 
-		// ¿ÏÁÖÇÑ»õ³¢µéÀ» HashTable·Î ¸¸µé¾îÁÜ
+		// ì™„ì£¼í•œì‚¬ëŒë“¤ì„ HashTableë¡œ ë§Œë“¤ì–´ì¤Œ
 		for (int i = 0; i < completion.length; i++) {
 			int key = getHashKey(completion[i]);
 			hash[key][cnt[key]++] = completion[i];
 		}
 
-		// Âü°¡ÀÚ ¸í´ÜÀ» ¿ÏÁÖÇÑ»õ³¢ Å×ÀÌºí¿¡¼­ µ¹·Áº½
+		// ì°¸ê°€ì ëª…ë‹¨ì„ ì™„ì£¼í•œì‚¬ëŒ í…Œì´ë¸”ì—ì„œ ëŒë ¤ë´„
 		for (int i = 0; i < participant.length; i++) {
 			int key = getHashKey(participant[i]);
 			if (cnt[key] == 0) {

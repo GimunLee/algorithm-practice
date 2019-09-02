@@ -51,8 +51,8 @@ public class UP_Solution_1767_프로세서연결하기 {
 	 * core와 dir을 받아 전선을 설치해봅니다. 전선 설치에 실패하는 경우, -1을 반환합니다.
 	 * 
 	 * @param core : 현재 탐색하는 코어
-	 * @param dir : 현재 방향
-	 * */
+	 * @param dir  : 현재 방향
+	 */
 	private static int setLine(Core core, int dir) {
 		int len = 0; // 전선의 길이
 		int r = core.r; // 현재 코어의 위치 r
@@ -78,7 +78,7 @@ public class UP_Solution_1767_프로세서연결하기 {
 		}
 
 		// 전선을 설치할 수 있는 경우이므로, 현재 코어의 위치를 다시 갱신해줍니다.
-		r = core.r; 
+		r = core.r;
 		c = core.c;
 
 		// 전선을 실제로 설치합니다.
@@ -91,10 +91,10 @@ public class UP_Solution_1767_프로세서연결하기 {
 		}
 		return len; // 전선의 최소 길이를 갱신해줘야하므로, 전선의 길이를 반환해줍니다.
 	} // end of setLine()
-	
+
 	/**
-	 * 하나의 코어를 상하좌우로 연결해보고, idx를 올려 다음 코어도 연결해봅니다.
-	 * 하나의 조합이 완성되는 경우, coreCnt와 len을 이용해 정답을 갱신해줍니다.
+	 * 하나의 코어를 상하좌우로 연결해보고, idx를 올려 다음 코어도 연결해봅니다. 하나의 조합이 완성되는 경우, coreCnt와 len을
+	 * 이용해 정답을 갱신해줍니다.
 	 * 
 	 * @param idx     : 코어의 인덱스
 	 * @param coreCnt : 코어의 연결 개수
@@ -103,18 +103,17 @@ public class UP_Solution_1767_프로세서연결하기 {
 	private static void dfs(int idx, int coreCnt, int len) {
 
 		if (idx == coreList.size()) { // 종료 조건 : 모든 코어를 탐색한 경우,
-			if (coreCnt > maxCoreCnt) { // 기존 연결 코어보다 현재 연결 코어가 더 많은 경우, 정답을 갱신해줍니다.  
-				maxCoreCnt = coreCnt; 
+			if (coreCnt > maxCoreCnt) { // 기존 연결 코어보다 현재 연결 코어가 더 많은 경우, 정답을 갱신해줍니다.
+				maxCoreCnt = coreCnt;
 				minCoreLen = len;
-			}
-			else if (coreCnt == maxCoreCnt) { // 기존 연결 코어의 개수와 현재 연결 코어 개수가 같다면,
+			} else if (coreCnt == maxCoreCnt) { // 기존 연결 코어의 개수와 현재 연결 코어 개수가 같다면,
 				minCoreLen = Math.min(minCoreLen, len); // 전선의 길이만 갱신해줍니다.
 			}
 			return;
 		}
 
 		Core core = coreList.get(idx); // 현재 탐색할 Core를 가져옵니다.
-		
+
 		// 4방향(상하좌우)를 탐색합니다.
 		for (int i = 0; i < dr.length; i++) {
 			int ret = setLine(core, i); // 해당 코어가 전선을 설치할 수 있는지 확인합니다.
@@ -144,6 +143,7 @@ public class UP_Solution_1767_프로세서연결하기 {
 		}
 
 	} // end of dfs()
+
 	private static class Core {
 		int r;
 		int c;
@@ -154,4 +154,3 @@ public class UP_Solution_1767_프로세서연결하기 {
 		}
 	} // end of Core
 } // end of class
-

@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class UP_Solution_1767_프로세서연결하기 {
+public class Solution_UP_1767_프로세서연결하기 {
 	private static int[][] map; // 입력을 저장할 2차원 정수 배열
 	private static ArrayList<Core> coreList; // 코어를 저장할 ArrayList 변수
 	private static int[] dr = { -1, 1, 0, 0 }; // row : 상 하 좌 우

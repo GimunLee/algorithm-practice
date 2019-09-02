@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class UP_Solution_5656_벽돌깨기 {
+public class Solution_UP_5656_벽돌깨기 {
 	private static int[] dr = { -1, 1, 0, 0 }; private static int[] dc = { 0, 0, -1, 1 };
 	private static int[][] map; // 원본 맵 데이터를 저장하는 변수
 	private static int N,W,H; // N : 구슬을 쏘는 횟수, W : 맵의 가로 범위 제한, H : 맵의 세로 범위 제한

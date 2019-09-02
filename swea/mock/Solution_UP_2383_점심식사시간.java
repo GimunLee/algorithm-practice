@@ -13,7 +13,7 @@ import java.util.StringTokenizer;
  * 최적화 안함
  */
 
-public class UP_Solution_2383_점심식사시간 {
+public class Solution_UP_2383_점심식사시간 {
 	private static ArrayList<Pair> people;
 	private static Stair[] stairs;
 

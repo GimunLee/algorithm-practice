@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
 /**
  * 2019.09.01.(일)
  */
-public class Main_16235_나무재테크_LIst {
+public class Main_16235_나무재테크_List {
 	private static int[] dr = { -1, -1, -1, 0, 0, 1, 1, 1 };
 	private static int[] dc = { -1, 0, 1, -1, 1, -1, 0, 1 };
 

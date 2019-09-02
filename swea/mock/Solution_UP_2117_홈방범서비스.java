@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class UP_Solution_2117_홈방범서비스 {
+public class Solution_UP_2117_홈방범서비스 {
 	private static int[] dr = { -1, 1, 0, 0 }; private static int[] dc = { 0, 0, -1, 1 };
 	private static int N, M; // N : 도시의 크기, M : 하나의 집이 지불할 수 있는 비용
 	private static int homeTotalCnt; // 집의 총 갯수

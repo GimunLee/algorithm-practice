@@ -13,7 +13,7 @@ import java.util.StringTokenizer;
  * BFS 실패
  */
 
-public class UP_Solution_2383_점심식사시간_BFS_F {
+public class Solution_UP_2383_점심식사시간_BFS_F {
 	static int[] dr = { -1, 1, 0, 0 };
 	static int[] dc = { 0, 0, -1, 1 };
 

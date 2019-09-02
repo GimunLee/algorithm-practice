@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class UP_Solution_4013_특이한자석 {
+public class Solution_UP_4013_특이한자석 {
 	static int[][] magnet; // r : 톱니바퀴 인덱스, c : 각 톱니 // 톱니를 일자로 펴서 생각
 
 	public static void main(String[] args) throws Exception {

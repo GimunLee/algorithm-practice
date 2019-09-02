@@ -10,7 +10,7 @@ import java.util.StringTokenizer;
  * 최적화 Memo
  */
 
-public class UP_Solution_2383_점심식사시간_memo {
+public class Solution_UP_2383_점심식사시간_memo {
 	private static ArrayList<Pair> people; // 사람의 위치 정보를 담을 변수
 	private static Stair[] stairs; // 계단의 위치와 길이를 담을 변수
 	private static int[][] memo; // [n번째 계단][n번째 사람] : n번째 사람이 n번째 계단에 도착할 때의 시간을 메모

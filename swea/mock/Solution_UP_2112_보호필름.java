@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class UP_Solution_2112_보호필름 {
+public class Solution_UP_2112_보호필름 {
 	private static int D; // 보호 필름의 두께 (3<= D <=13)
 	private static int W; // 보호 필름의 가로 크기 (1<= D <=20)
 	private static int K; // 합격 기준 (1<= K <=D)

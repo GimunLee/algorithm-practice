@@ -40,7 +40,6 @@ public class Solution_1767_프로세서연결하기 {
 	private static int accessCoreCntANS;
 	private static int accessCoreLenANS;
 
-	/** 전선을 설치할 Core를 골라서 Core를 설치해본다. */
 	private static void chooseCore(ArrayList<Core> coreList, int idx, int accessCoreCnt, int accessCoreLen) {
 
 		if (idx == coreList.size()) { // 다 탐색해봤으면
@@ -53,15 +52,14 @@ public class Solution_1767_프로세서연결하기 {
 			return;
 		}
 
-		// 코어 연결할 수 있는지 확인, 연결할 수 있으면 연결하기
 		Core core = coreList.get(idx);
 		for (int dir = 0; dir < dr.length; dir++) {
-			int result = setCable(core, dir);
-			if (result != -1) {
-				chooseCore(coreList, idx + 1, accessCoreCnt + 1, accessCoreLen + result);
+			int cableLen = setCable(core, dir);
+			if (cableLen != -1) {
+				chooseCore(coreList, idx + 1, accessCoreCnt + 1, accessCoreLen + cableLen);
 				int r = core.r;
 				int c = core.c;
-				for (int i = 0; i < result; i++) {
+				for (int i = 0; i < cableLen; i++) {
 					int nR = r + dr[dir];
 					int nC = c + dc[dir];
 					map[nR][nC] = 0;
@@ -71,9 +69,8 @@ public class Solution_1767_프로세서연결하기 {
 			}
 		}
 		chooseCore(coreList, idx + 1, accessCoreCnt, accessCoreLen);
-	}
+	} // end of func(chooseCore)
 
-	// 전선 설치하기
 	private static int setCable(Core core, int dir) {
 		boolean canSetCable = false;
 		int coreLen = 0;
@@ -112,7 +109,7 @@ public class Solution_1767_프로세서연결하기 {
 		} else {
 			return -1;
 		}
-	}
+	} // end of func(setCable)
 
 	private static class Core {
 		int r, c;
@@ -121,5 +118,5 @@ public class Solution_1767_프로세서연결하기 {
 			this.r = r;
 			this.c = c;
 		}
-	}
+	} // end of Core
 } // end of Class

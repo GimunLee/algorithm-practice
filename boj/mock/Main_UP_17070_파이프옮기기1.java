@@ -3,7 +3,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class UP_Main_17070_파이프옮기기1 {
+public class Main_UP_17070_파이프옮기기1 {
 	static final int[] dr = { 0, 1, 1 }; // 행(우, 하, 대각선)
 	static final int[] dc = { 1, 0, 1 }; // 열(우, 하, 대각선)
 	private static int[][] map; // 격자판 2차원 배열 변수

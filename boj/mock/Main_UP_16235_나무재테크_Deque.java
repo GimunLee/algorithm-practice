@@ -12,7 +12,7 @@ import java.util.StringTokenizer;
  * 2019.09.01.(일)
  * 2019.09.02.(월) Upload
  */
-public class Will_Main_16235_나무재테크_Deque {
+public class Main_UP_16235_나무재테크_Deque {
 	// 인접한 8칸을 접근할 때 사용할 배열
 	private static int[] dr = { -1, -1, -1, 0, 0, 1, 1, 1 }; // 행 (row)
 	private static int[] dc = { -1, 0, 1, -1, 1, -1, 0, 1 }; // 열 (column)

@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class UP_Main_14502_연구소 {
+public class Main_UP_14502_연구소 {
 	static int[][] move = { { -1, 0 }, { 1, 0 }, { 0, -1 }, { 0, 1 } }; // 바이러스 퍼지는 방향(상하좌우)
 	static int[][] map; // 연구소 map
 	static int[][] map_temp; // 테스트할 map의 임시 변수

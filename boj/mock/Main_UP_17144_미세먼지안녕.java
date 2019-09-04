@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class UP_Main_17144_미세먼지안녕 {
+public class Main_UP_17144_미세먼지안녕 {
 	private static final int[] dr = { -1, 0, 1, 0 }; // 미세먼지 확산 방향 (상하)
 	private static final int[] dc = { 0, 1, 0, -1 }; // 미세먼지 확산 방향 (우좌)
 	// 공기청정기로 회전시키는 방향

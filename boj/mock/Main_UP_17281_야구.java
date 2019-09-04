@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class UP_Main_17281_야구 {
+public class Main_UP_17281_야구 {
 	private static int N; // 이닝 수
 	private static int[][] hitter; // idx : 타자 번호 // [n][x] : n이닝 때 x번 선수의 친 결과
 

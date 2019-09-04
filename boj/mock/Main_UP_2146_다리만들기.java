@@ -42,7 +42,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class UP_Main_2146_다리만들기 {
+public class Main_UP_2146_다리만들기 {
 	static int[] dr = { -1, 1, 0, 0 }; // 다리를 설치할 때 쓸 변수 (상하)
 	static int[] dc = { 0, 0, -1, 1 }; // 다리를 설치할 때 쓸 변수 (좌우)
 	private static int[][] map; // input을 저장할 변수

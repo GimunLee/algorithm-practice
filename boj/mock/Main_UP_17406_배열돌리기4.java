@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
  * 2019.08.17.(토)
  * 2019.08.25.(SUN) Upload
  */
-public class UP_Main_17406_배열돌리기4 {
+public class Main_UP_17406_배열돌리기4 {
 	// 반시계 방향 (하우상좌)
 	private static int[] dr = { 1, 0, -1, 0 }; 
 	private static int[] dc = { 0, 1, 0, -1 };

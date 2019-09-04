@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.StringTokenizer;
 
-public class UP_Main_17135_캐슬디펜스 {
+public class Main_UP_17135_캐슬디펜스 {
 	private static int N; // 격자판 행 제한
 	private static int M; // 격자판 열 제한
 	private static int D; // 궁수의 공격 거리 제한

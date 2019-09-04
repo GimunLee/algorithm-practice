@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
  * 2019.08.25.(SUN)
  * 2019.08.25.(SUN) Upload
  * */
-public class UP_Main_1726_로봇 {
+public class Main_UP_1726_로봇 {
 	// 동서남북 (0은 사용하지 않음 / 우좌하상)
 	private static int[] dr = { 0, 0, 0, 1, -1 };
 	private static int[] dc = { 0, 1, -1, 0, 0 };

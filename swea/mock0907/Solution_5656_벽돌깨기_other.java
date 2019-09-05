@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Solution_1767_벽돌깨기_other {
+public class Solution_5656_벽돌깨기_other {
 	static int N, W, H, map[][];
 	static int[] dx = { -1, 1, 0, 0 }, dy = { 0, 0, -1, 1 };
 	static int ans, remains; // 남은 벽돌 개수

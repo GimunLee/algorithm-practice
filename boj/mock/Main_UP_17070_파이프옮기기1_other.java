@@ -5,7 +5,7 @@ import java.util.StringTokenizer;
 
 //BOJ :: 17070 파이프 옮기기1
 
-public class Main_17070_파이프옮기기1_other {
+public class Main_UP_17070_파이프옮기기1_other {
 	static int N;
 	static int[][] map;
 	static boolean[][] visit;

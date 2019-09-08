@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
  * 2019.08.26.(MON) Upload
  * */
 
-public class Main_17143_낚시왕 {
+public class Main_UP_17143_낚시왕 {
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine(), " ");

@@ -13,7 +13,7 @@ import java.util.StringTokenizer;
  * 2019.09.01.(일) 
  * 나이를 어떻게 먹는지 잘 생각해보자 (시간 줄일 여지!)
  */
-public class Main_16235_나무재테크_Array {
+public class Main_UP_16235_나무재테크_Array {
 	private static int[] dr = { -1, -1, -1, 0, 0, 1, 1, 1 };
 	private static int[] dc = { -1, 0, 1, -1, 1, -1, 0, 1 };
 

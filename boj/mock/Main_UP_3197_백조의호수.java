@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class Main_3197_백조의호수 {
+public class Main_UP_3197_백조의호수 {
 	static final int[] dr = { -1, 1, 0, 0 }; // 빙하와 새를 탐색할 때 쓰일 방향 배열 (상하)
 	static final int[] dc = { 0, 0, -1, 1 }; // 빙하와 새를 탐색할 때 쓰일 방향 배열 (좌우)
 	private static char[][] map; // 맵의 원본 상태를 저장할 배열

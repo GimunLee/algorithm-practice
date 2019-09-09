@@ -8,17 +8,15 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 /**
- * 메모이제이션 쓰기
+ * 시간 초과
  */
 
-public class Main_1005_ACMCraft_other {
+public class Main_1005_ACMCraft_TLE1 {
 	private static int[] D;
 	private static ArrayList<Integer>[] list;
 	private static int[] indegree;
 	private static int W;
-	private static int[] tmp_D;
-	private static boolean[] visited;
-
+	
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int TC = Integer.parseInt(br.readLine().trim());
@@ -39,7 +37,7 @@ public class Main_1005_ACMCraft_other {
 
 			list = new ArrayList[N + 1];
 			indegree = new int[N + 1]; // 들어오는 간선
-			visited = new boolean[N + 1];
+			boolean[] visited = new boolean[N + 1];
 
 			// 건물 짓는 순서 규칙
 			for (int i = 0; i < K; i++) {
@@ -55,13 +53,37 @@ public class Main_1005_ACMCraft_other {
 
 			W = Integer.parseInt(br.readLine().trim()); // 건물 번호
 			// -- end of input
-			tmp_D = new int[N + 1];
+			int[] tmp_D = new int[N + 1];
 
-			for (int i = 1; i <= N; i++) {
-				if (indegree[i] == 0 && !visited[i]) {
-					visited[i] = true;
-					if (dfs(i)) {
-						break;
+			here: while (true) {
+				for (int i = 1; i <= N; i++) {
+					if (indegree[i] == 0) { // 0이면 시작
+						if (i == W) { // 정답인 경우
+							break here;
+						}
+
+						if (list[i] == null) { // 정답이 아니고 다음으로 지어야하는 건물이 없는 경우,
+							continue;
+						}
+
+						for (int j = 0; j < list[i].size(); j++) {
+							int next = list[i].get(j); // 다음 지어야하는 건물
+							indegree[next] -= 1; // 들어오는 간선 줄이기
+							// tmp_D : 들어오는 간선 중 가장 큰 값
+
+							if(visited[next]) {
+								continue;
+							}
+							
+							tmp_D[next] = tmp_D[next] < D[i] ? D[i] : tmp_D[next];
+							if (indegree[next] == 0) { // 들어오는 간선에 대한 처리가 끝났을시,
+								D[next] = tmp_D[next] + D[next];
+								visited[next] = true;
+								if (next == W) { // 해당 건물을 만났을 경우
+									break here;
+								}
+							}
+						}
 					}
 				}
 			}
@@ -69,29 +91,4 @@ public class Main_1005_ACMCraft_other {
 		} // end of for(TestCase)
 		System.out.println(sb.toString());
 	} // end of main()
-
-	private static boolean dfs(int cur) {
-		// DP
-//		System.out.println(cur + " : " + Arrays.toString(tmp_D));
-		if (cur == W && indegree[cur] == 0) { // 정답인 경우,
-			// 정답 갱신
-			tmp_D[cur] += D[cur];
-			return true;
-		}
-		if (list[cur] == null) {
-			return false;
-		}
-
-		for (int i = 0; i < list[cur].size(); i++) {
-			int next = list[cur].get(i);
-			indegree[next] -= 1;
-			tmp_D[next] = tmp_D[next] < D[cur] ? D[cur] : tmp_D[next];
-			if (indegree[next] == 0) {
-				D[next] = tmp_D[next] + D[next];
-				visited[next] = true;
-			}
-			dfs(next);
-		}
-		return false;
-	}
 } // end of class

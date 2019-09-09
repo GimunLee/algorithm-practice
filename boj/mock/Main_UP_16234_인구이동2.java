@@ -11,7 +11,7 @@ import java.util.StringTokenizer;
  * 비효율적임 (라이브러리 사용, sum, cnt 로직 다름)
  * */
 
-public class Main_16234_인구이동2 {
+public class Main_UP_16234_인구이동2 {
 	private static int[] dr = { -1, 1, 0, 0 };
 	private static int[] dc = { 0, 0, -1, 1 };
 	private static int N, L, R;

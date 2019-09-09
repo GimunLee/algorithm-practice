@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Main_3190_¹ì {
+public class Main_UP_3190_¹ì {
 	private static int[] dr = { -1, 0, 1, 0 }; // »ó¿ìÇÏÁÂ (½Ã°è¹æÇâ)
 	private static int[] dc = { 0, 1, 0, -1 };
 

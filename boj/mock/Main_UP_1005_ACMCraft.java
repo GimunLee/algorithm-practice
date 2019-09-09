@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class Main_1005_ACMCraft {
+public class Main_UP_1005_ACMCraft {
 	private static int[] D; // 각 건물의 건설 시간을 저장할 배열
 	private static ArrayList<Integer>[] list; // 인접 노드 리스트 ( list[1]에 저장된 리스트는 '1'을 짓고 지을 수 있는 건물을 저장하고 있음) 
 	private static int[] indegree; // 각 건물별 들어오는 간선의 갯수를 저장할 배열

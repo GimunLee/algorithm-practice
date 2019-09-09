@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class Main_2072_오목 {
+public class NY_Main_2072_오목 {
 	// 1 2 3
 	// 4 5 6
 	// 7 8 9

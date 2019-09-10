@@ -5,9 +5,10 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 /**
- * MST 공부
- * */
-public class Main_1922_네트워크연결 {
+ * Prim : 340ms
+ * kruscal : 540ms (height 추가)
+ */
+public class Main_1922_네트워크연결_prim {
 	private static int N;
 	private static int M;
 	private static int[][] map;

@@ -1,4 +1,4 @@
-package boj.mock;
+package boj.mst;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -17,8 +17,8 @@ public class Main_3197_백조의호수_djs {
 		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 		R = Integer.parseInt(st.nextToken());
 		C = Integer.parseInt(st.nextToken());
-
 		map = new char[R][C];
+		
 		int birdIdx = 0;
 		int[][] birdLoc = new int[2][2];
 		for (int r = 0; r < R; r++) {
@@ -53,10 +53,13 @@ public class Main_3197_백조의호수_djs {
 			}
 		}
 		makeSet(idx);
+		meltMap = new int[R][C];
 		int ANSER = bfs(birdLoc);
 		System.out.println(ANSER);
 
 	} // end of main
+
+	private static int[][] meltMap;
 
 	private static int bfs(int[][] birdLoc) {
 		int time = 1;
@@ -73,11 +76,7 @@ public class Main_3197_백조의호수_djs {
 					int nR = r + dr[dir];
 					int nC = c + dc[dir];
 
-					if (!inRange(nR, nC)) {
-						continue;
-					}
-					
-					if(p[waterMap[r][c]] == p[waterMap[nR][nC]]) {
+					if (!inRange(nR, nC) || (p[waterMap[r][c]] == p[waterMap[nR][nC]])) {
 						continue;
 					}
 
@@ -85,17 +84,18 @@ public class Main_3197_백조의호수_djs {
 						waterMap[nR][nC] = waterMap[r][c];
 						queue[++rear][0] = nR;
 						queue[rear][1] = nC;
+						meltMap[nR][nC] = time;
 						continue;
 					}
 
 					if (p[waterMap[r][c]] != p[waterMap[nR][nC]]) { // 부모가 다른지 확인해준다.
 						union(waterMap[r][c], waterMap[nR][nC]); // 집합을 합쳐준다.
+						if (find(firstBird) == find(secondBird)) { // 합쳤을때, 새들의 위치 집합과 같다면
+							return meltMap[nR][nC];
+						}
 					}
 				}
 			} // end of for(1 Time)
-			if (find(firstBird) == find(secondBird)) { // 합쳤을때, 새들의 위치 집합과 같다면
-				return time;
-			}
 			time++;
 		}
 		return time;

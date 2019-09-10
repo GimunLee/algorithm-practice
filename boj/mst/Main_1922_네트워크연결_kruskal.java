@@ -6,8 +6,7 @@ import java.util.Arrays;
 import java.util.StringTokenizer;
 
 /**
- * Prim : 340ms
- * kruscal : 540ms (height 추가)
+ * Prim : 340ms kruscal : 540ms (rank 추가)
  */
 public class Main_1922_네트워크연결_kruskal {
 	private static int N, M;
@@ -36,7 +35,7 @@ public class Main_1922_네트워크연결_kruskal {
 		Arrays.sort(weight);
 
 		p = new int[N + 1];
-		height = new int[N + 1];
+		rank = new int[N + 1];
 
 		for (int i = 1; i <= N; i++) {
 			p[i] = i; // 최초엔 자기 자신이 부모
@@ -79,7 +78,7 @@ public class Main_1922_네트워크연결_kruskal {
 		}
 	}
 
-	private static int[] height;
+	private static int[] rank;
 
 	private static void union(int num1, int num2) {
 
@@ -90,12 +89,20 @@ public class Main_1922_네트워크연결_kruskal {
 			return;
 		}
 
-		if (height[p1] < height[p2]) {
-			p[num2] = p[num1];
+		if (rank[p1] < rank[p2]) {
+			p[p1] = p2;
 		} else {
-			p[num1] = p[num2];
-			height[p1] += 1;
+			if (rank[p2] == rank[p1]) {
+				rank[p1]++;
+			}
+			p[p2] = p1;
 		}
+
+		/**
+		 * 정석 if (rank[p1] == rank[p2]) { p[p2] = p1; rank[p1]++; return; }
+		 * 
+		 * if (rank[p1] < rank[p2]) { p[p1] = p2; } else { p[p2] = p1; }
+		 */
 		return;
 	}
 

@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
  * Prim : 340ms
  * kruscal : 540ms (height 추가)
  */
-public class Main_1922_네트워크연결_kruscal {
+public class Main_1922_네트워크연결_kruskal {
 	private static int N, M;
 	private static int[][] map;
 

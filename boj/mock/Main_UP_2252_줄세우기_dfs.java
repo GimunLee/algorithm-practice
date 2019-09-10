@@ -1,11 +1,11 @@
-package boj.afgraph1;
+package boj.mock;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Stack;
 import java.util.StringTokenizer;
 
-public class UP_Main_2252_줄세우기_dfs {
+public class Main_UP_2252_줄세우기_dfs {
 	private static ArrayList<Integer>[] list; // 노드 간 연결돼있는지, 저장하는 배열 리스트 변수
 	private static boolean[] visited; // 줄을 세웠는지 여부를 저장하는 변수 
 	private static Stack<Integer> stack; // 후입선출(FILO)을 위한 Stack 변수

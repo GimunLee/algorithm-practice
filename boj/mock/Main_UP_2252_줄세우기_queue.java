@@ -1,10 +1,10 @@
-package boj.afgraph1;
+package boj.mock;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class UP_Main_2252_줄세우기_queue {
+public class Main_UP_2252_줄세우기_queue {
 	private static ArrayList<Integer>[] list; // 노드 간 연결돼있는지, 저장하는 배열 리스트 변수
 	private static boolean[] visited; // 줄을 세웠는지 여부를 저장하는 변수 
 	private static int[] indegree; // 해당 사람보다 키가 작은 사람의 수 (들어오는 간선)

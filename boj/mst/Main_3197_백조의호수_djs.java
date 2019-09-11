@@ -18,9 +18,10 @@ public class Main_3197_백조의호수_djs {
 		R = Integer.parseInt(st.nextToken());
 		C = Integer.parseInt(st.nextToken());
 		map = new char[R][C];
-		
+
 		int birdIdx = 0;
 		int[][] birdLoc = new int[2][2];
+
 		for (int r = 0; r < R; r++) {
 			String line = br.readLine();
 			for (int c = 0; c < C; c++) {
@@ -31,6 +32,8 @@ public class Main_3197_백조의호수_djs {
 				}
 			}
 		}
+		// -- end of Input
+
 		int idx = 1;
 		waterMap = new int[R][C];
 		front = -1;
@@ -51,15 +54,19 @@ public class Main_3197_백조의호수_djs {
 					}
 				}
 			}
-		}
+		} // end of (집합 표시)
+
 		makeSet(idx);
 		meltMap = new int[R][C];
 		int ANSER = bfs(birdLoc);
 		System.out.println(ANSER);
-
 	} // end of main
 
-	private static int[][] meltMap;
+	private static int[][] meltMap; // 빙하가 녹는 시간 저장
+	private static int[][] waterMap; // 물의 집합을 저장
+	private static boolean[][] isInsert;
+	private static int[][] queue; // 집합으로 묶을때 쓰이는 큐
+	private static int front, rear;
 
 	private static int bfs(int[][] birdLoc) {
 		int time = 1;
@@ -93,6 +100,7 @@ public class Main_3197_백조의호수_djs {
 						if (find(firstBird) == find(secondBird)) { // 합쳤을때, 새들의 위치 집합과 같다면
 							return meltMap[nR][nC];
 						}
+						continue;
 					}
 				}
 			} // end of for(1 Time)
@@ -100,48 +108,6 @@ public class Main_3197_백조의호수_djs {
 		}
 		return time;
 	}
-
-	private static void makeSet(int idx) {
-		p = new int[idx];
-		rank = new int[idx];
-		for (int i = 1; i < p.length; i++) {
-			p[i] = i; // 자기자신이 부모
-		}
-	}
-
-	private static int find(int num) {
-		if (p[num] == num) {
-			return p[num];
-		}
-		return p[num] = find(p[num]);
-	}
-
-	private static int[] rank;
-
-	private static void union(int num1, int num2) {
-		int p1 = find(num1);
-		int p2 = find(num2);
-
-		if (p1 == p2) {
-			return;
-		}
-		if (rank[p1] < rank[p2]) {
-			p[p1] = p2;
-			return;
-		} else {
-			if (rank[p1] == rank[p2]) {
-				rank[p1]++;
-			}
-			p[p2] = p1;
-		}
-		return;
-	}
-
-	private static int[][] waterMap;
-	private static int[][] queue;
-	private static int front, rear;
-
-	private static boolean[][] isInsert;
 
 	private static void dfs(int r, int c, int idx) {
 		waterMap[r][c] = idx;
@@ -176,10 +142,38 @@ public class Main_3197_백조의호수_djs {
 		return true;
 	}
 
-	private static void print(int[][] input) {
-		System.out.println("-------------------------------------------------");
-		for (int r = 0; r < input.length; r++) {
-			System.out.println(Arrays.toString(input[r]));
+	private static void makeSet(int idx) {
+		p = new int[idx];
+		rank = new int[idx];
+		for (int i = 1; i < p.length; i++) {
+			p[i] = i; // 자기자신이 부모
+		}
+	}
+
+	private static int find(int num) {
+		if (p[num] == num) {
+			return p[num];
+		}
+		return p[num] = find(p[num]);
+	}
+
+	private static int[] rank;
+
+	private static void union(int num1, int num2) {
+		int p1 = find(num1);
+		int p2 = find(num2);
+
+		if (p1 == p2) {
+			return;
+		}
+		if (rank[p1] < rank[p2]) {
+			p[p1] = p2;
+			return;
+		} else {
+			if (rank[p1] == rank[p2]) {
+				rank[p1]++;
+			}
+			p[p2] = p1;
 		}
 		return;
 	}

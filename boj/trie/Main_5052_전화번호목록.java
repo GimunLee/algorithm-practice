@@ -1,4 +1,4 @@
-package boj.mock;
+package boj.trie;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 

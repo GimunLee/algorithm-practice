@@ -2,12 +2,12 @@ package programmers;
 
 import java.util.Arrays;
 
-class Solution {
+class Solution_Ã¼À°º¹ {
 
 	public static void main(String[] args) {
 		int[] lost = { 1, 3, 5 };
-		int[] reservce = { 1, 4 };
-		int ans = solution(5, lost, reservce);
+		int[] reserve = { 1, 4 };
+		int ans = solution(5, lost, reserve);
 		System.out.println(ans);
 
 	}
@@ -33,13 +33,13 @@ class Solution {
 			int cur = lost[i];
 			if (cnt[cur] == 1) {
 				continue;
-			}else if (cnt[cur - 1] >= 2) {
+			} else if (cnt[cur - 1] >= 2) {
 				cnt[cur - 1]--;
 				continue;
-			}else if (cnt[cur +1] >= 2) {
-				cnt[cur +1]--;
+			} else if (cnt[cur + 1] >= 2) {
+				cnt[cur + 1]--;
 				continue;
-			}else {
+			} else {
 				answer--;
 			}
 		}

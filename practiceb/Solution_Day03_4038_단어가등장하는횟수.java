@@ -4,34 +4,40 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import jdk.jfr.Unsigned;
+
 public class Solution_Day03_4038_단어가등장하는횟수 {
-	private static final int HASH_VALUE = 17;
+	private static final double D = 2;
+	private static final double M = Math.pow(2, 64);
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-		int TC = Integer.parseInt(br.readLine().trim()); // Test Case 수
+		long TC = Integer.parseInt(br.readLine().trim()); // Test Case 수
 		StringBuilder sb = new StringBuilder();
-		for (int tc = 1; tc <= TC; tc++) {
-			int ANSER = 0;
+		for (long tc = 1; tc <= TC; tc++) {
+			long ANSER = 0;
 			String B = br.readLine();
 			String S = br.readLine();
+			String[] hashTable = new String[S.length()];
 
-			int key = getKey(S);
+			double firstKey = getFirstKey(S);
 
-			// B를 S의 Length만큼 잘라서 하나 만든 다음
+			String firstB = B.substring(0, S.length());
+			double hash = getFirstKey(firstB);
+			if (firstKey == hash) {
+				ANSER++;
+			}
 
 			int idx = 0;
-			while (idx < B.length() - S.length() + 1) {
-				if (B.charAt(idx) != S.charAt(0)) {
-					idx++;
-					continue;
-				}
-
-				String subB = B.substring(idx, idx + S.length());
-				int compareKey = getKey(subB);
-
-				if (key == compareKey && S.equals(subB)) {
+			for (int i = S.length(); i < B.length(); i++) {
+				char newString = B.charAt(i); // 새로 들어온 문자
+				char oldString = B.charAt(idx); // 빼야하는 문자
+				double oldStringD = Math.pow(2, S.length()) % M; // 빼야하는 문자의 곱해주는 값
+				double oldHash = (oldString * oldStringD) % M;
+				double newHash = ((hash - oldHash) * D) % M;
+				hash = (newHash) + (newString * D) % M;
+				if (firstKey == hash) {
 					ANSER++;
 				}
 				idx++;
@@ -41,17 +47,18 @@ public class Solution_Day03_4038_단어가등장하는횟수 {
 		System.out.println(sb.toString());
 	}
 
-	private static int getKey(String S) {
-		int key = 0;
+	private static double getFirstKey(String S) {
+		double key = 0;
 
 		for (int i = 0; i < S.length(); i++) {
-			key = key * HASH_VALUE + S.charAt(i);
+			double DVAL = Math.pow(2, S.length() - i) % M;
+			key += S.charAt(i) * DVAL;
 		}
 
 		if (key < 0) {
 			key = -key;
 		}
 
-		return key % 21;
+		return key % M;
 	}
 }

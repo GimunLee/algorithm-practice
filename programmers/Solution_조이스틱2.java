@@ -1,5 +1,9 @@
 package programmers;
 
+
+/**
+ * 각 반대로 되는 경우 생각해보기
+ * */
 class Solution_조이스틱2 {
 
 	public static void main(String[] args) {

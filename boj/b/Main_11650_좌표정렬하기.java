@@ -5,7 +5,7 @@ import java.util.Scanner;
 class Main_11650_좌표정렬하기 {
 	private static Pair input[];
 	private static int num;
-	
+
 	public static void main(String arg[]) throws Exception {
 		Scanner sc = new Scanner(System.in);
 		num = sc.nextInt();
@@ -21,7 +21,7 @@ class Main_11650_좌표정렬하기 {
 		printResult();
 		sc.close();
 	}
-	
+
 	static class Pair {
 		int x;
 		int y;

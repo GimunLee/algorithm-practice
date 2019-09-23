@@ -5,6 +5,9 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
+/**
+ * 시간 줄이기 생각
+ * */
 public class NY_Main_15481_그래프와MST {
 	private static int N, M;
 	private static int[] p, rank;

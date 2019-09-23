@@ -1,9 +1,9 @@
 package programmers;
 
-class Solution_¡∂¿ÃΩ∫∆Ω3 {
+class Solution_¡∂¿ÃΩ∫∆Ω_others {
 
 	public static void main(String[] args) {
-		String answer = "AAABAAAAB";
+		String answer = "BBAAAAABB";
 		char c = 'A';
 		// A:65, Z: 90
 		System.out.println(solution(answer));
@@ -24,7 +24,7 @@ class Solution_¡∂¿ÃΩ∫∆Ω3 {
 					countA++;
 					nextIdx++;
 				}
-				int tmp = (i - 1) * 2 + (name.length() - 1 - i - countA);
+				int tmp = 2 * (i - 1)  + (name.length() - 1 - i - countA);
 				exp = Math.min(exp, tmp);
 			}
 		}

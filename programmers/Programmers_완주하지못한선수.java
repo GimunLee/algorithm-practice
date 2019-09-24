@@ -14,7 +14,7 @@ public class Programmers_¿ÏÁÖÇÏÁö¸øÇÑ¼±¼ö {
 
 	private static final int HASH_SIZE = 1000;
 	private static final int HASH_LEN = 400;
-	private static final int HASH_VAL = 17; // 19, 23?„ ê°??¥ ë§ì´??
+	private static final int HASH_VAL = 257; // 19, 23?„ ê°??¥ ë§ì´??
 
 	private static String[][] hash = new String[HASH_SIZE][HASH_LEN];
 	private static int[] cnt = new int[HASH_SIZE];

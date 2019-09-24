@@ -3,6 +3,9 @@ package codeforeces;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+/**
+ * https://codeforces.com/contest/4/problem/C
+ * */
 public class Codeforces_RegistrationSystem {
 
 	// 보통 100,000 일때, 1000 * {100*4} 로 설정한다.

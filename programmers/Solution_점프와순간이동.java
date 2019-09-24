@@ -1,6 +1,6 @@
 package programmers;
 
-public class Solution_아이언슈트 {
+public class Solution_점프와순간이동 {
 	public static void main(String[] args) {
 		int n = 5000;
 		System.out.println(solution(n));

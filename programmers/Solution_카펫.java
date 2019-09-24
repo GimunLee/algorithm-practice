@@ -3,7 +3,7 @@ package programmers;
 import java.util.Arrays;
 import java.util.HashSet;
 
-public class Solution_격자판 {
+public class Solution_카펫 {
 	public static void main(String[] args) {
 		int brown = 24;
 		int red = 24;

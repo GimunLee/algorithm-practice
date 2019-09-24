@@ -9,7 +9,6 @@ public class Solution_점프와순간이동 {
 
 	public static int solution(int n) {
 		int ans = 0;
-
 		while (true) {
 			if (n == 0) {
 				break;

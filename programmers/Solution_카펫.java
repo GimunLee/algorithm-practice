@@ -1,8 +1,5 @@
 package programmers;
 
-import java.util.Arrays;
-import java.util.HashSet;
-
 public class Solution_Ä«Æê {
 	public static void main(String[] args) {
 		int brown = 24;

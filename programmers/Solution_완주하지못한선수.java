@@ -3,7 +3,7 @@ package programmers;
 /**
  * Hash 諛곗슦湲?
  */
-public class Programmers_완주하지못한선수 {
+public class Solution_완주하지못한선수 {
 
 	public static void main(String[] args) {
 		String[] a = { "marina", "josipa", "nikola", "vinko", "filipa" };

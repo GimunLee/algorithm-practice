@@ -11,10 +11,9 @@ public class Solution_예산 {
 
 	public static int solution(int[] budgets, int M) {
 		int answer = 0;
-		int max = Integer.MIN_VALUE, min = Integer.MAX_VALUE;
+		int max = Integer.MIN_VALUE;
 
 		for (int i = 0; i < budgets.length; i++) {
-			min = Math.min(budgets[i], min);
 			max = Math.max(budgets[i], max);
 		} // 최소 최대 뽑기
 

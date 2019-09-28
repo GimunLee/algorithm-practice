@@ -23,9 +23,12 @@ class Main_11650_좌표정렬하기_middle_quicksort {
 
 		quickSort(0, N - 1);
 
+		StringBuilder sb = new StringBuilder();
 		for (int r = 0; r < N; r++) {
-			System.out.println(Arrays.toString(array[r]));
+			sb.append(array[r][0]).append(" ").append(array[r][1]).append("\n");
 		}
+		System.out.println(sb.toString());
+
 	} // end of main
 
 	private static void quickSort(int first, int last) {
@@ -40,8 +43,7 @@ class Main_11650_좌표정렬하기_middle_quicksort {
 		int j = last + 1;
 
 		while (true) {
-			while (array[++i][0] < pivot_x
-					|| ((array[i][0] == pivot_x) && array[i][1] < pivot_y)) {
+			while (array[++i][0] < pivot_x || ((array[i][0] == pivot_x) && array[i][1] < pivot_y)) {
 			}
 			while (array[--j][0] > pivot_x || ((array[j][0] == pivot_x) && array[j][1] > pivot_y)) {
 			}

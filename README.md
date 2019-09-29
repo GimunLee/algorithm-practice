@@ -35,9 +35,3 @@
       Sqrt Decompisition : 개념은 쉽고 유용한데 쓸 일이 많은 유형인지는 잘 모르겠다
 
 #### Repository 정리 예정
-
----
-
-Commit Test //
-
-222222

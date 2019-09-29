@@ -43,7 +43,8 @@ class Main_11650_좌표정렬하기_middle_quicksort {
 		int j = last + 1;
 
 		while (true) {
-			while (array[++i][0] < pivot_x || ((array[i][0] == pivot_x) && array[i][1] < pivot_y)) {
+			while (array[++i][0] < pivot_x 
+					|| ((array[i][0] == pivot_x) && array[i][1] < pivot_y)) {
 			}
 			while (array[--j][0] > pivot_x || ((array[j][0] == pivot_x) && array[j][1] > pivot_y)) {
 			}

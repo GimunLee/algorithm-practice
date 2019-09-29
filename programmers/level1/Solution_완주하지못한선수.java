@@ -1,4 +1,4 @@
-package programmers;
+package programmers.level1;
 
 /**
  * Hash 배우�?

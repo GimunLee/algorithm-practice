@@ -1,4 +1,4 @@
-package programmers;
+package programmers.level3;
 
 public class Solution_º∂ø¨∞·«œ±‚ {
 	public static void main(String[] args) {

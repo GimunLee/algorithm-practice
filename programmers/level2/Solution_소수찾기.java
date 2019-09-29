@@ -1,4 +1,4 @@
-package programmers;
+package programmers.level2;
 
 import java.util.HashSet;
 import java.util.Iterator;

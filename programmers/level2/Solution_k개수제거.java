@@ -1,4 +1,4 @@
-package programmers;
+package programmers.level2;
 
 public class Solution_k개수제거 {
 	public static void main(String[] args) {

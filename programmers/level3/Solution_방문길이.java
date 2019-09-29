@@ -1,4 +1,4 @@
-package programmers;
+package programmers.level3;
 
 import java.util.Arrays;
 

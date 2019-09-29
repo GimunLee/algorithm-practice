@@ -1,4 +1,4 @@
-package programmers;
+package programmers.level2;
 
 public class Solution_배열중가장작은수제거 {
 	public static void main(String[] args) {

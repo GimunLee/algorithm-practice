@@ -1,4 +1,4 @@
-package programmers;
+package programmers.level2;
 
 public class Solution_점프와순간이동 {
 	public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package programmers;
+package programmers.level2;
 
 class Solution_¡∂¿ÃΩ∫∆Ω_others {
 

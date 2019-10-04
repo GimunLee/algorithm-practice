@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Solution_입국심사 {
 	public static void main(String[] args) {
 		int n = 6;
-		int[] times = { 8, 7 }; // 28
+		int[] times = { 7, 10, 2 }; // 28
 
 		System.out.println(solution(n, times));
 	}
@@ -14,8 +14,29 @@ public class Solution_입국심사 {
 		long answer = 0;
 		sortedTimes = times;
 		quickSort(0, times.length - 1);
-		System.out.println(Arrays.toString(sortedTimes));
+		long start = 0;
+		long end = Long.MAX_VALUE;
 
+		while (true) {
+			if (start > end) {
+				break;
+			}
+			long mid = (start + end) / 2;
+
+			long sum = 0;
+			for (int i = 0; i < sortedTimes.length; i++) {
+				sum += mid / sortedTimes[i];
+				if (sum >= n) {
+					break;
+				}
+			}
+			if (sum < n) {
+				start = mid + 1;
+			} else {
+				end = mid - 1;
+				answer = mid;
+			}
+		}
 		return answer;
 	}
 

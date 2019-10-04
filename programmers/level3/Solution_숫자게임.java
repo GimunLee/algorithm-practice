@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.PriorityQueue;
 
 public class Solution_숫자게임 {
-
 	public static void main(String[] args) {
 		int[] A = { 1, 1, 2, 3 };
 		int[] B = { 1, 2, 2, 3 };

@@ -9,7 +9,7 @@ public class Solution_방문길이 {
 	public static void main(String[] args) {
 		String dirs = "LULLLLLLU";
 		System.out.println(solution(dirs));
-	}
+	} // end of main
 
 	public static int solution(String dirs) {
 		int answer = 0;
@@ -32,9 +32,8 @@ public class Solution_방문길이 {
 			c = nC;
 		}
 
-
 		return answer;
-	}
+	} // end of func(solution)
 
 	private static final int R = 11;
 	private static final int C = 11;
@@ -44,7 +43,7 @@ public class Solution_방문길이 {
 			return false;
 		}
 		return true;
-	}
+	} // end of func(isRange)
 
 	private static int getReverseDir(int dir) {
 		switch (dir) {
@@ -58,7 +57,7 @@ public class Solution_방문길이 {
 			return 2;
 		}
 		return -1;
-	}
+	} // end of func(getReverseDir)
 
 	private static int getDir(char dir) {
 		switch (dir) {
@@ -72,5 +71,5 @@ public class Solution_방문길이 {
 			return 3;
 		}
 		return -1;
-	}
+	} // end of func(getDir)
 }

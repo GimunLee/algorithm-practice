@@ -1,5 +1,8 @@
 package programmers.level3;
 
+/**
+ * 2019.10.05 Blog Upload
+ * */
 public class Solution_UP_입국심사 {
 	public static void main(String[] args) {
 		int n = 6;

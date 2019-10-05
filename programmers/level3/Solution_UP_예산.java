@@ -1,5 +1,8 @@
 package programmers.level3;
 
+/**
+ * 2019-10-05 Blog Upload
+ * */
 public class Solution_UP_예산 {
 	public static void main(String[] args) {
 		int[] input = { 130, 130, 130, 130 };
@@ -46,4 +49,4 @@ public class Solution_UP_예산 {
 		}
 		return answer; // 정답 반환
 	} // end of func(solution)
-}
+} // end of class

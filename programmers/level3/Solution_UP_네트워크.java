@@ -1,5 +1,8 @@
 package programmers.level3;
 
+/**
+ * 2019-10-05 blog upload
+ * */
 public class Solution_UP_네트워크 {
 	public static void main(String[] args) {
 		int n = 3;
@@ -68,4 +71,4 @@ public class Solution_UP_네트워크 {
 			p[p2] = p1; // node2를 node1의 집합으로 편입
 		}
 	} // end of func(union)
-}
+} // end of class

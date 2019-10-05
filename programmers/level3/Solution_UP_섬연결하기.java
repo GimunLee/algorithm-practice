@@ -1,5 +1,8 @@
 package programmers.level3;
 
+/**
+ * 2019-10-05 Blog Upload
+ * */
 /** 최소 신장 트리 (크루스칼) */
 public class Solution_UP_섬연결하기 {
 	public static void main(String[] args) {

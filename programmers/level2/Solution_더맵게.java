@@ -14,6 +14,7 @@ public class Solution_´õ¸Ê°Ô {
 	public static int solution(int[] scoville, int K) {
 		int answer = 0;
 		PriorityQueue<Integer> queue = new PriorityQueue<Integer>();
+
 		for (int i = 0; i < scoville.length; i++) {
 			queue.add(scoville[i]);
 		}

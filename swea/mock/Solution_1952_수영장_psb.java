@@ -1,10 +1,10 @@
-package swea.d4;
+package swea.mock;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Solution_수영장_박수빈 {
+public class Solution_1952_수영장_psb {
 
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

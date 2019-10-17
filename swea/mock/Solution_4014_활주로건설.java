@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Solution_활주로건설 {
+public class Solution_4014_활주로건설 {
 	private static int[][] map;
 	private static int N, X;
 

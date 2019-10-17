@@ -1,4 +1,4 @@
-package swea.d4;
+package swea.mock;
 
 /**
  * 시작좌표 (r,c)를 정하고, 사각형의 폭(w), 높이(h)를 정한뒤
@@ -12,7 +12,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Solution_디저트카페_Prof {
+public class Solution_2105_디저트카페_Prof {
 
 	private static int[][] m;
 

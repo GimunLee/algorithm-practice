@@ -1,10 +1,10 @@
-package swea.d4;
+package swea.mock;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class UP_Solution_1949_등산로조성 {
+public class Solution_UP_1949_등산로조성 {
 	private final static int[] dr = { -1, 1, 0, 0 }; // 행(상하)
 	private final static int[] dc = { 0, 0, -1, 1 }; // 열(좌우)
 	private static int[][] map; // 격자판

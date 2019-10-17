@@ -7,14 +7,13 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class Solution_5653_줄기세포배양 {
-	private static final int[] dr = { -1, 1, 0, 0 };
-	private static final int[] dc = { 0, 0, -1, 1 };
-	private static Cell[][] map;
-	private static int N, M, K;
+	private static final int[] dr = { -1, 1, 0, 0 }, dc = { 0, 0, -1, 1 }; // 상하좌우
+	private static final int SIZE = 1200; // map의 최댓값
+	private static Cell[][] map; // 줄기세포 배양판
+	private static int N, M, K; //
 	private static int[][] isExist;
 	private static boolean[][] notYet;
 	private static Queue<Pair> queue;
-	private static final int SIZE = 1200;
 
 	public static void main(String[] args) throws Exception {
 		StringBuilder sb = new StringBuilder();
@@ -52,8 +51,7 @@ public class Solution_5653_줄기세포배양 {
 			// 3. 죽어도 남아있음
 
 			for (int k = 1; k <= K; k++) {
-//				System.out.println(k);
-//				print();
+//				print(k);
 				int queueSize = queue.size();
 				for (int i = 0; i < queueSize; i++) {
 					Pair p = queue.poll();
@@ -95,8 +93,8 @@ public class Solution_5653_줄기세포배양 {
 		System.out.println(sb.toString());
 	} // end of main
 
-	private static void print() {
-		System.out.println("==================================");
+	private static void print(int k) {
+		System.out.println(k + "시간");
 		for (int r = 0; r < SIZE; r++) {
 			for (int c = 0; c < SIZE; c++) {
 				if (map[r][c] == null) {

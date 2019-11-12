@@ -6,27 +6,49 @@ import java.util.HashMap;
 import java.util.StringTokenizer;
 
 public class Main_17825_¡÷ªÁ¿ß¿∑≥Ó¿Ã {
-	private static final int[] map = new int[20];
+	private static final int[] map = new int[21];
 	private static final int[] map10 = new int[4];
 	private static final int[] map20 = new int[3];
 	private static final int[] map25 = new int[3];
 	private static final int[] map30 = new int[4];
 
 	private static HashMap<Horse, Integer> hashMap;
+	private static int[] input;
 
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-		int[] input = new int[10];
+		input = new int[10];
 		for (int i = 0; i < 10; i++) {
 			input[i] = Integer.parseInt(st.nextToken());
 		} // -- end of for(Input)
 
 		init();
-
+		map[20] = 0;
+		answer = Integer.MIN_VALUE;
+		dfs(0, 0);
+		System.out.println(answer);
 	} // end of main
 
-	private static boolean[] isEnd = new boolean[4];
+	private static int answer;
+
+	private static void dfs(int len, int score) {
+		if (len == 10) {
+			answer = Math.max(score, answer);
+			return;
+		}
+
+		for (int j = 0; j < horseArray.length; j++) {
+			Horse tmpHorse = new Horse(horseArray[j].mapIdx, horseArray[j].position);
+			boolean tmp = go(j, input[len]);
+			if (!tmp) {
+				continue;
+			}
+			dfs(len + 1, score + getScore(j));
+			horseArray[j] = tmpHorse;
+		}
+	}
+
 	private static Horse[] horseArray;
 
 	// idxπ¯¬∞ ∏ª¿ª ∫∏≥ª∫∏±‚
@@ -81,8 +103,8 @@ public class Main_17825_¡÷ªÁ¿ß¿∑≥Ó¿Ã {
 			}
 		case 30:
 			if (tmpPos >= map30.length) {
-				horse.mapIdx = 25;
-				horse.position = tmpPos - map10.length;
+				horse.mapIdx = 0;
+				horse.position = tmpPos - map30.length;
 				break;
 			} else {
 				horse.position = tmpPos;
@@ -96,7 +118,8 @@ public class Main_17825_¡÷ªÁ¿ß¿∑≥Ó¿Ã {
 			return false;
 		} else {
 			hashMap.remove(origin);
-			hashMap.put(horse, 1);
+			Horse tmpHorse = new Horse(horse.mapIdx, horse.position);
+			hashMap.put(tmpHorse, 1);
 			return true;
 		}
 	}
@@ -124,6 +147,39 @@ public class Main_17825_¡÷ªÁ¿ß¿∑≥Ó¿Ã {
 		}
 	}
 
+	private static int getScore(int i) {
+		int mapIdx = horseArray[i].mapIdx;
+		int position = horseArray[i].position;
+		switch (mapIdx) {
+		case 0:
+			if (position >= map.length) {
+				return 0;
+			}
+			return map[position];
+		case 10:
+			if (position >= map10.length) {
+				return 0;
+			}
+			return map10[position];
+		case 20:
+			if (position >= map20.length) {
+				return 0;
+			}
+			return map20[position];
+		case 25:
+			if (position >= map25.length) {
+				return 0;
+			}
+			return map25[position];
+		case 30:
+			if (position >= map30.length) {
+				return 0;
+			}
+			return map30[position];
+		}
+		return 0;
+	}
+
 	private static class Horse {
 		int mapIdx, position;
 
@@ -142,5 +198,9 @@ public class Main_17825_¡÷ªÁ¿ß¿∑≥Ó¿Ã {
 			}
 		}
 
+		@Override
+		public String toString() {
+			return "Horse [mapIdx=" + mapIdx + ", position=" + position + "]";
+		}
 	}
 } // end of class

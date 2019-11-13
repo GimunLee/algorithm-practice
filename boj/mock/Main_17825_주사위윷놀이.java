@@ -2,6 +2,7 @@ package boj.mock;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.StringTokenizer;
 
@@ -25,6 +26,16 @@ public class Main_17825_¡÷ªÁ¿ß¿∑≥Ó¿Ã {
 
 		init();
 		map[20] = 0;
+		map30[0] = 30;
+		map30[1] = 28;
+		map30[2] = 27;
+		map30[3] = 26;
+		System.out.println(Arrays.toString(map));
+		System.out.println(Arrays.toString(map10));
+		System.out.println(Arrays.toString(map20));
+		System.out.println(Arrays.toString(map25));
+		System.out.println(Arrays.toString(map30));
+
 		answer = Integer.MIN_VALUE;
 		dfs(0, 0);
 		System.out.println(answer);
@@ -33,6 +44,7 @@ public class Main_17825_¡÷ªÁ¿ß¿∑≥Ó¿Ã {
 	private static int answer;
 
 	private static void dfs(int len, int score) {
+
 		if (len == 10) {
 			answer = Math.max(score, answer);
 			return;
@@ -96,7 +108,12 @@ public class Main_17825_¡÷ªÁ¿ß¿∑≥Ó¿Ã {
 		case 25:
 			if (tmpPos >= map25.length) {
 				horse.mapIdx = 0;
-				horse.position = tmpPos - map25.length;
+				int tmp = tmpPos - map25.length;
+				if (tmp >= 1) {
+					horse.position = map.length - 1;
+				} else {
+					horse.position = map.length - 2;
+				}
 			} else {
 				horse.position = tmpPos;
 				break;
@@ -111,7 +128,7 @@ public class Main_17825_¡÷ªÁ¿ß¿∑≥Ó¿Ã {
 				break;
 			}
 		}
-
+		
 		if (hashMap.containsKey(horse)) {
 			horse.mapIdx = origin.mapIdx;
 			horse.position = origin.position;
@@ -137,7 +154,6 @@ public class Main_17825_¡÷ªÁ¿ß¿∑≥Ó¿Ã {
 		map30[0] = 30;
 		for (int i = 1; i < map10.length; i++) {
 			map10[i] = map10[i - 1] + 3;
-			map30[i] = map30[i - 1] - 2;
 		}
 		map20[0] = 20;
 		map25[0] = 25;

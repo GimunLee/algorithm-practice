@@ -16,7 +16,9 @@ public class Solution_순위 {
 
 	public static int solution(int n, int[][] results) {
 		int answer = 0;
+		
 		int[][] edgeArray = new int[n + 1][n + 1];
+		
 		for (int i = 0; i < results.length; i++) {
 			int winner = results[i][0];
 			int loser = results[i][1];
@@ -25,10 +27,11 @@ public class Solution_순위 {
 
 		Queue<Integer> winQueue = new LinkedList<>();
 		Queue<Integer> loseQueue = new LinkedList<>();
+		
 		for (int i = 1; i <= n; i++) {
 			int cnt = 0;
+			
 			winQueue.add(i);
-			loseQueue.add(i);
 			boolean[] visited = new boolean[n + 1];
 			while (!winQueue.isEmpty()) {
 				int people = winQueue.poll();
@@ -41,7 +44,9 @@ public class Solution_순위 {
 					}
 				}
 			}
+			
 			// 진거
+			loseQueue.add(i);
 			while (!loseQueue.isEmpty()) {
 				int people = loseQueue.poll();
 				for (int j = 1; j < edgeArray[people].length; j++) {

@@ -1,11 +1,11 @@
-package kakao;
+package etc;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.StringTokenizer;
 
-public class Solution_02 {
+public class Solution_kk_02 {
 	public static void main(String[] args) {
 		String s = "{{4,2,3},{3},{2,3,4,1},{2,3}}";
 

@@ -1,9 +1,9 @@
-package kakao;
+package etc;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 
-public class Solution_03 {
+public class Solution_kk_03 {
 	
 	public static void main(String[] args) {
 		

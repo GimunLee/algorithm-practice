@@ -16,7 +16,7 @@ public class Main_11559_PuyoPuyo {
 
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
+		
 		map = new char[R][C];
 		Queue<Pair> queue = new LinkedList<>();
 		for (int r = 0; r < R; r++) {

@@ -1,8 +1,8 @@
-package test;
+package etc;
 
 import java.util.Arrays;
 
-public class Solution_intern_01 {
+public class Solution_pg_intern_01 {
 	public static void main(String[] args) {
 		int[][] land = { { 1, 4, 8, 10 }, { 5, 5, 5, 5 }, { 10, 10, 10, 10 }, { 10, 10, 10, 20 } };
 		int height = 3;

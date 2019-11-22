@@ -1,4 +1,4 @@
-package swea.database;
+package practiceb.database;
 
 import java.util.Scanner;
 

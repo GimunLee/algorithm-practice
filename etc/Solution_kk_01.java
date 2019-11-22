@@ -1,8 +1,8 @@
-package kakao;
+package etc;
 
 import java.util.Stack;
 
-public class Solution_01 {
+public class Solution_kk_01 {
 	private int height, width; // 높이, 너비
 
 	public int solution(int[][] board, int[] moves) {

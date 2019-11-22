@@ -1,8 +1,8 @@
-package swea.database;
+package practiceb.database;
 
 import java.util.Arrays;
 
-import swea.database.Solution.Result;
+import practiceb.database.Solution.Result;
 
 public class UserSolution {
 	public static final int HASH_VALUE = 257;

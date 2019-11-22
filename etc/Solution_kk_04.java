@@ -1,8 +1,8 @@
-package kakao;
+package etc;
 
 import java.util.HashMap;
 
-public class Solution_04 {
+public class Solution_kk_04 {
 	public static void main(String[] args) {
 		long k = 10;
 		long[] room_number = { 1, 3, 4, 1, 3, 1 };

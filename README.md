@@ -1,4 +1,6 @@
 # algorithm_practice
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FGimunLee%2Falgorithm-practice.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FGimunLee%2Falgorithm-practice?ref=badge_shield)
+
 문제를 통해 알고리즘을 학습하는 저장소입니다.
 
 <br>
@@ -67,3 +69,7 @@
 ## Reference & Additional Resources
 
 - https://github.com/GimunLee/algorithm/blob/master/swea/%EC%82%BC%EC%84%B1%20SW%20%EC%97%AD%EB%9F%89%ED%85%8C%EC%8A%A4%ED%8A%B8%20Tip.md#%EC%82%BC%EC%84%B1-sw-%EC%97%AD%EB%9F%89-%ED%85%8C%EC%8A%A4%ED%8A%B8-tip
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FGimunLee%2Falgorithm-practice.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FGimunLee%2Falgorithm-practice?ref=badge_large)

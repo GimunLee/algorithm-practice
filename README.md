@@ -63,8 +63,9 @@ static void down() {
 }
 ```
 
-<br>
+<br/>
 
 ## Reference & Additional Resources
 
-- https://github.com/GimunLee/algorithm/blob/master/swea/%EC%82%BC%EC%84%B1%20SW%20%EC%97%AD%EB%9F%89%ED%85%8C%EC%8A%A4%ED%8A%B8%20Tip.md#%EC%82%BC%EC%84%B1-sw-%EC%97%AD%EB%9F%89-%ED%85%8C%EC%8A%A4%ED%8A%B8-tip
+- [삼성 SW 역량 테스트 대비 자료](https://github.com/GimunLee/algorithm-practice/blob/master/%EC%82%BC%EC%84%B1%20SW%20%EC%97%AD%EB%9F%89%20%ED%85%8C%EC%8A%A4%ED%8A%B8%20%EB%8C%80%EB%B9%84%20%EC%9E%90%EB%A3%8C.md#%EC%82%BC%EC%84%B1-sw-%EC%97%AD%EB%9F%89-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EB%8C%80%EB%B9%84-%EC%9E%90%EB%A3%8C
+)

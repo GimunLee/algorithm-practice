@@ -1,24 +1,24 @@
-## 삼성 SW 역량 테스트 TIP
+# 삼성 SW 역량 테스트 TIP
 
 <br>
 
 ## 기본 Tip
 
-1. cin/cout 대신에 scanf/printf 사용하자!
+### 1. cin/cout 대신에 scanf/printf 사용하자!
 
-   입출력 함수의 성능차이가 많이 나기 때문에 scanf/printf를 사용합시다.
+입출력 함수의 성능차이가 많이 나기 때문에 scanf/printf를 사용합시다.
 
-2. C로 풀더라도 CPP 컴파일러를 사용하자!
+### 2. C로 풀더라도 CPP 컴파일러를 사용하자!
 
-   CPP 컴파일러가 보다 자세한 오류 사유를 리턴해주는 경우가 많습니다.
+CPP 컴파일러가 보다 자세한 오류 사유를 리턴해주는 경우가 많습니다.
 
-3. 난이도가 올라갈수록 문제를 바로 푸는 것보다 어떻게 풀 것인지를 오래 고민하자!
+### 3. 난이도가 올라갈수록 문제를 바로 푸는 것보다 어떻게 풀 것인지를 오래 고민하자!
 
-   B형 이상의 난이도의 경우에는 30분 ~ 1시간 이상을 생각하고 완전한 풀이 전략을 세우고 시작해야합니다.
+B형 이상의 난이도의 경우에는 30분 ~ 1시간 이상을 생각하고 완전한 풀이 전략을 세우고 시작해야합니다.
 
-4. Segmentation fault가 뜬다면 올바른 참조를 하고 있는지 확인하자!
+### 4. Segmentation fault가 뜬다면 올바른 참조를 하고 있는지 확인하자!
 
-   Visual studio의 경우에는 올바르지 않은 메모리를 write 하더라도 넘어가는 경우가 많지만, 채점 컴파일러는 read만 하더라도 오류가 발생합니다.
+Visual studio의 경우에는 올바르지 않은 메모리를 write 하더라도 넘어가는 경우가 많지만, 채점 컴파일러는 read만 하더라도 오류가 발생합니다.
 
 <br>
 
@@ -105,21 +105,24 @@ int main(){
 
  ## B형 대비 알고리즘
 
-   - 기본
-     - LinkedList, Stack, Queue, Tree
-     - 이분탐색, MST, disjointset
-     - 해싱 : B형보는데 해싱을 모르고 응용할 줄 모르면 바로 혀 깨물어야됨
-     - 링크드리스트 구현 
-     - 트리 구현 (자식 수 안 정해진 트리)
-     - 메모이제이션 
-     - 비트마스킹 
-     - 분할정복 
-     - Sort (퀵, 계수, 기수, 머지)
-     - Heap (스케줄링)
-   - 추가
-     - Trie : 문자열 관련 문제
-     - LCA(Lowest Common Ancestor) (디렉토리 구조, 가계도)
-     - BST(Binary Search Tree) 
-     - Segment Tree
-     - Sqrt Decompisition
+### 기본
+
+  - LinkedList, Stack, Queue, Tree
+  - 이분탐색, MST, disjointset
+  - 해싱 : B형보는데 해싱을 모르고 응용할 줄 모르면 바로 혀 깨물어야됨
+  - 링크드리스트 구현 
+  - 트리 구현 (자식 수 안 정해진 트리)
+  - 메모이제이션 
+  - 비트마스킹 
+  - 분할정복 
+  - Sort (퀵, 계수, 기수, 머지)
+  - Heap (스케줄링)
+  
+### 추가
+
+  - Trie : 문자열 관련 문제
+  - LCA(Lowest Common Ancestor) (디렉토리 구조, 가계도)
+  - BST(Binary Search Tree) 
+  - Segment Tree
+  - Sqrt Decompisition
 

@@ -1,5 +1,7 @@
 # 삼성 SW 역량 테스트 TIP
 
+*Assembled by GimunLee*
+
 <br>
 
 ## 기본 Tip
